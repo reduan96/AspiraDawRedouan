@@ -26,7 +26,7 @@ public class RobotAspirador {
         //Instanciación de las constantes correpondientes al nombre de usuario 
         //y a la contraseña.
         final String NOMBRE_USUARIO = "Reduan";
-        final String CONTRASEÑA = "Contraseña123";
+        final String CONTRASENIA = "Contraseña";
         //Declaración del boolean para la función de salida del programa
         boolean repetirPrograma = true;
 
@@ -39,7 +39,7 @@ public class RobotAspirador {
         //Realizamos un bucle while que compruebe las credenciales,si son erroneas
         //el bucle dará true y entrará al bucle hasta que pongas las credenciales
         //correctas y dará false en la condicion y se saldrá
-        while (!nomUs.equals(NOMBRE_USUARIO) && !pass.equals(CONTRASEÑA)) {
+        while (!nomUs.equals(NOMBRE_USUARIO) && !pass.equals(CONTRASENIA)) {
 
             JOptionPane.showMessageDialog(null, "Error al introducir la/s"
                     + "credencial/es");
