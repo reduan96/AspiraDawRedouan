@@ -54,28 +54,29 @@ public class RobotAspirador {
         do {
 
             JOptionPane.showMessageDialog(null, "Credenciales correctas\n"
-                    + "Bienvenido al Aspirador Robot\n Configurando el sistema...");
+                    + "Bienvenido al Aspirador Robot\nConfigurando el sistema...");
 
             //Primero Configuramos el sistema antes de mostrar el menu
-            double mCocina, mSalon, mBanio, mDom1, mDom2;
+            int mCocina, mSalon, mBanio, mDom1, mDom2;
 
             JOptionPane.showMessageDialog(null, "Introduzca el número de metros"
-                    + "de las dependencias(1m²--100m²)");
+                    + " de las dependencias(1m²--100m²)");
+            
             String mC = JOptionPane.showInputDialog(null, "Introduzca los metros"
-                    + "correspondientes de la cocina");
-            mCocina = Double.parseDouble(mC);
+                    + " correspondientes de la cocina");
+            mCocina = Integer.parseInt(mC);
             String mS = JOptionPane.showInputDialog(null, "Introduzca los metros"
-                    + "correpsondientes del salon");
-            mSalon = Double.parseDouble(mS);
+                    + " correpsondientes del salon");
+            mSalon = Integer.parseInt(mS);
             String mB = JOptionPane.showInputDialog(null, "Introduzca los metros"
-                    + "correspondientes al baño");
-            mBanio = Double.parseDouble(mB);
+                    + " correspondientes al baño");
+            mBanio = Integer.parseInt(mB);
             String mD1 = JOptionPane.showInputDialog(null, "Introduzca los metros"
-                    + "correspondientes al dormitorio 1");
-            mDom1 = Double.parseDouble(mD1);
+                    + " correspondientes al dormitorio 1");
+            mDom1 = Integer.parseInt(mD1);
             String mD2 = JOptionPane.showInputDialog(null, "Introduzca los metros"
-                    + "correspondientes al dormitorio 2");
-            mDom2 = Double.parseDouble(mD2);
+                    + " correspondientes al dormitorio 2");
+            mDom2 = Integer.parseInt(mD2);
 
             //Establecemos el nivel de carga del robot, tiene que estar entre el 
             //0% y 100% e instanciamos nivelCarga para guardar la variable
