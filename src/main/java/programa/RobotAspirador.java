@@ -112,17 +112,23 @@ public class RobotAspirador {
 
                     //Según lo introducido en el input del JOption dara true y 
                     //seguirá la ejecución del programa o no.
-                    if (afirmacion.equalsIgnoreCase("no")) {
+                    do {
+                        if (afirmacion.equalsIgnoreCase("si")) {
 
-                        repetirPrograma = true;
+                            repetirPrograma = false;
+                            JOptionPane.showMessageDialog(null, "Finalizando el "
+                                    + "programa...");
 
-                    } else {
+                        } else {
 
-                        repetirPrograma = false;
-                        JOptionPane.showMessageDialog(null, "Finalizando el "
-                                + "programa...");
+                            repetirPrograma = true;
+                            JOptionPane.showMessageDialog(null, "Repitiendo el "
+                                    + "programa...");
 
-                    }
+                        }
+
+                    } while (!afirmacion.equalsIgnoreCase("si")
+                            && !afirmacion.equalsIgnoreCase("no"));
 
             }
 
