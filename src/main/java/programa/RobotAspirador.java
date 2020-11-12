@@ -77,7 +77,17 @@ public class RobotAspirador {
                     + "correspondientes al dormitorio 2");
             mDom2 = Double.parseDouble(mD2);
 
-            //Establecer el nivel de carga
+            //Establecemos el nivel de carga del robot, tiene que estar entre el 
+            //0% y 100% e instanciamos nivelCarga para guardar la variable
+            int cargaEstablecida;
+            do {
+
+                String C = JOptionPane.showInputDialog(null, "Indica el nivel "
+                        + "de carga del robot aspirador\n 0% --- 100%");
+                cargaEstablecida = Integer.parseInt(C);
+
+            } while (cargaEstablecida < 0 || cargaEstablecida > 100);
+
             String op = JOptionPane.showInputDialog(null, "MENU\n 1.ASPIRACIÓN\n"
                     + " 2.ASPIRACIÓN Y FREGADO\n 3.ESTADO GENERAL\n "
                     + "4.BASE DE CARGA\n 5.SALIR");
