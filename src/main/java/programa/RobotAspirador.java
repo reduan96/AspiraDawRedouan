@@ -26,26 +26,26 @@ public class RobotAspirador {
         //Instanciación de las constantes correpondientes al nombre de usuario 
         //y a la contraseña.
         final String NOMBRE_USUARIO = "Reduan";
-        final String CONTRASENIA = "Contraseña";
+        final String CONTRASENIA = "Codigoentrada";
         //Declaración del boolean para la función de salida del programa
         boolean repetirPrograma = true;
 
         //Introducción de las creedenciales que serán comparadas para ver si son
         //correctas y así visualizar el menú.
-        String nomUs = JOptionPane.showInputDialog(null, "Bienvenido al programa "
-                + "del robot aspirador.\n Introduzca su nombre de usuario");
-        String pass = JOptionPane.showInputDialog(null, "Introduzca su contraseña");
+        JOptionPane.showMessageDialog(null, "\"Bienvenido al programa del robot "
+                + "aspirador\nA continuación introduzca sus datos de acceso");
+        String nomUs = JOptionPane.showInputDialog(null, "Usuario");
+        String pass = JOptionPane.showInputDialog(null, "Contraseña");
 
         //Realizamos un bucle while que compruebe las credenciales,si son erroneas
         //el bucle dará true y entrará al bucle hasta que pongas las credenciales
         //correctas y dará false en la condicion y se saldrá
-        while (!nomUs.equals(NOMBRE_USUARIO) && !pass.equals(CONTRASENIA)) {
+        while (!nomUs.equals(NOMBRE_USUARIO) || !pass.equals(CONTRASENIA)) {
 
-            JOptionPane.showMessageDialog(null, "Error al introducir la/s"
-                    + "credencial/es");
-            JOptionPane.showInputDialog(null, "Introduzca de nuevo su nombre "
-                    + "de usuario");
-            JOptionPane.showInputDialog(null, "Introduzca de nuevo su contraseña");
+            nomUs = JOptionPane.showInputDialog(null, "Introduzca de nuevo su "
+                    + "nombre de usuario", "Error!", JOptionPane.ERROR_MESSAGE);
+            pass = JOptionPane.showInputDialog(null, "Introduzca de nuevo su "
+                    + "contraseña", "Error!", JOptionPane.ERROR_MESSAGE);
 
         }
 
@@ -61,22 +61,28 @@ public class RobotAspirador {
 
             JOptionPane.showMessageDialog(null, "Introduzca el número de metros"
                     + " de las dependencias(1m²--100m²)");
-            
-            String mC = JOptionPane.showInputDialog(null, "Introduzca los metros"
-                    + " correspondientes de la cocina");
-            mCocina = Integer.parseInt(mC);
-            String mS = JOptionPane.showInputDialog(null, "Introduzca los metros"
-                    + " correpsondientes del salon");
-            mSalon = Integer.parseInt(mS);
-            String mB = JOptionPane.showInputDialog(null, "Introduzca los metros"
-                    + " correspondientes al baño");
-            mBanio = Integer.parseInt(mB);
-            String mD1 = JOptionPane.showInputDialog(null, "Introduzca los metros"
-                    + " correspondientes al dormitorio 1");
-            mDom1 = Integer.parseInt(mD1);
-            String mD2 = JOptionPane.showInputDialog(null, "Introduzca los metros"
-                    + " correspondientes al dormitorio 2");
-            mDom2 = Integer.parseInt(mD2);
+
+            //Creación de un bucle do while para evitar así el la introducción
+            //erronea de los m² de las dependencias por parte del usuario
+            do {
+                String mC = JOptionPane.showInputDialog(null, "Introduzca los metros"
+                        + " correspondientes de la cocina");
+                mCocina = Integer.parseInt(mC);
+                String mS = JOptionPane.showInputDialog(null, "Introduzca los metros"
+                        + " correpsondientes del salon");
+                mSalon = Integer.parseInt(mS);
+                String mB = JOptionPane.showInputDialog(null, "Introduzca los metros"
+                        + " correspondientes al baño");
+                mBanio = Integer.parseInt(mB);
+                String mD1 = JOptionPane.showInputDialog(null, "Introduzca los metros"
+                        + " correspondientes al dormitorio 1");
+                mDom1 = Integer.parseInt(mD1);
+                String mD2 = JOptionPane.showInputDialog(null, "Introduzca los metros"
+                        + " correspondientes al dormitorio 2");
+                mDom2 = Integer.parseInt(mD2);
+            } while (mCocina < 0 || mCocina > 100 || mSalon < 0 || mSalon > 100
+                    || mBanio < 0 || mBanio > 100 || mDom1 < 0 || mDom1 > 100
+                    || mDom2 < 0 || mDom2 > 100);
 
             //Establecemos el nivel de carga del robot, tiene que estar entre el 
             //0% y 100% e instanciamos nivelCarga para guardar la variable
@@ -106,30 +112,26 @@ public class RobotAspirador {
                 case 4:
 
                 case 5:
-                    //Al escribir 7 que corresponde a salir entramos aqui y nos
-                    //pregunta que si estamos seguros de salir
-                    String afirmacion = JOptionPane.showInputDialog(null, "Seguro"
-                            + " que quieres salir?\n SI   NO");
+                    /*Al escribir 5 que corresponde a salir entramos aqui y nos
+                    pregunta que si estamos seguros de salir si le damos si este
+                    valor se guarda en un int y se compara con los JOption YES
+                    o con JOption NO y con el bucle if según la repsuesta, se 
+                    ejecuta de nuevo el programa o no*/
+                    int confirmacion = JOptionPane.showConfirmDialog(null, "Seguro"
+                            + " que quieres salir?", "SALIDA DEL PROGRAMA",
+                            JOptionPane.YES_NO_OPTION);
 
-                    //Según lo introducido en el input del JOption dara true y 
-                    //seguirá la ejecución del programa o no.
-                    do {
-                        if (afirmacion.equalsIgnoreCase("si")) {
+                    if (confirmacion == JOptionPane.YES_OPTION) {
 
-                            repetirPrograma = false;
-                            JOptionPane.showMessageDialog(null, "Finalizando el "
-                                    + "programa...");
+                        repetirPrograma = false;
+                        JOptionPane.showMessageDialog(null, "Hasta luego :)");
 
-                        } else {
+                    } else {
 
-                            repetirPrograma = true;
-                            JOptionPane.showMessageDialog(null, "Repitiendo el "
-                                    + "programa...");
+                        repetirPrograma = true;
+                        JOptionPane.showMessageDialog(null, "Repitiendo el programa");
 
-                        }
-
-                    } while (!afirmacion.equalsIgnoreCase("si")
-                            && !afirmacion.equalsIgnoreCase("no"));
+                    }
 
             }
 
