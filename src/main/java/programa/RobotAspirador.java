@@ -48,57 +48,75 @@ public class RobotAspirador {
             JOptionPane.showInputDialog(null, "Introduzca de nuevo su contraseña");
 
         }
-        
+
         //Realización del bucle principal que mostrará el menu hasta que elijamos
         //finalizar el programa
-        do{
-            
+        do {
+
             JOptionPane.showMessageDialog(null, "Credenciales correctas\n"
-                    + "Bienvenido");
-            String op = JOptionPane.showInputDialog(null,"MENU\n 1.CONFIGURAR "
-                    + "EL SISTEMA\n 2.CARGA\n 3.ASPIRACIÓN\n 4.ASPIRACIÓN Y FREGADO\n "
-                    + "5.ESTADO GENERAL\n 6.BASE DE CARGA\n 7.SALIR");
+                    + "Bienvenido al Aspirador Robot\n Configurando el sistema...");
+
+            //Primero Configuramos el sistema antes de mostrar el menu
+            double mCocina, mSalon, mBanio, mDom1, mDom2;
+
+            JOptionPane.showMessageDialog(null, "Introduzca el número de metros"
+                    + "de las dependencias(1m²--100m²)");
+            String mC = JOptionPane.showInputDialog(null, "Introduzca los metros"
+                    + "correspondientes de la cocina");
+            mCocina = Double.parseDouble(mC);
+            String mS = JOptionPane.showInputDialog(null, "Introduzca los metros"
+                    + "correpsondientes del salon");
+            mSalon = Double.parseDouble(mS);
+            String mB = JOptionPane.showInputDialog(null, "Introduzca los metros"
+                    + "correspondientes al baño");
+            mBanio = Double.parseDouble(mB);
+            String mD1 = JOptionPane.showInputDialog(null, "Introduzca los metros"
+                    + "correspondientes al dormitorio 1");
+            mDom1 = Double.parseDouble(mD1);
+            String mD2 = JOptionPane.showInputDialog(null, "Introduzca los metros"
+                    + "correspondientes al dormitorio 2");
+            mDom2 = Double.parseDouble(mD2);
+
+            //Establecer el nivel de carga
+            String op = JOptionPane.showInputDialog(null, "MENU\n 1.ASPIRACIÓN\n"
+                    + " 2.ASPIRACIÓN Y FREGADO\n 3.ESTADO GENERAL\n "
+                    + "4.BASE DE CARGA\n 5.SALIR");
             //Hacemos el parse para convertir el string en un int
             int opcion = Integer.parseInt(op);
-            
+
             //Estructura switch que determina la elección tomada 
-            switch(opcion){
+            switch (opcion) {
                 case 1:
-                    
+
                 case 2:
-                    
+
                 case 3:
-                    
+
                 case 4:
-                    
+
                 case 5:
-                    
-                case 6:   
-                    
-                case 7:
                     //Al escribir 7 que corresponde a salir entramos aqui y nos
                     //pregunta que si estamos seguros de salir
-                    String afirmacion = JOptionPane.showInputDialog(null,"Seguro"
+                    String afirmacion = JOptionPane.showInputDialog(null, "Seguro"
                             + " que quieres salir?\n SI   NO");
-                    
+
                     //Según lo introducido en el input del JOption dara true y 
                     //seguirá la ejecución del programa o no.
-                    if(afirmacion.equalsIgnoreCase("no")){
-                        
+                    if (afirmacion.equalsIgnoreCase("no")) {
+
                         repetirPrograma = true;
-                        
-                    }else{
-                        
+
+                    } else {
+
                         repetirPrograma = false;
                         JOptionPane.showMessageDialog(null, "Finalizando el "
                                 + "programa...");
-                        
+
                     }
-                
+
             }
-            
-            
-        }while(repetirPrograma);
+
+        } while (repetirPrograma);
 
     }
 
