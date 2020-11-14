@@ -26,7 +26,7 @@ public class RobotAspirador {
         //Instanciación de las constantes correpondientes al nombre de usuario 
         //y a la contraseña.
         final String NOMBRE_USUARIO = "Reduan";
-        final String CONTRASENIA = "Codigoentrada";
+        final String CONTRASENIA = "password";
         //Declaración del boolean para la función de salida del programa
         boolean repetirPrograma = true;
 
@@ -98,14 +98,14 @@ public class RobotAspirador {
             //establecemos un bucle while para filtrar posibles errores.
             String C = JOptionPane.showInputDialog(null, "Indica el nivel "
                     + "de carga del robot aspirador\n 0% --- 100%");
-            int cargaEstablecida = Integer.parseInt(C);
+            double cargaEstablecida = Double.parseDouble(C);
 
             while (cargaEstablecida < 0 || cargaEstablecida > 100) {
 
                 C = JOptionPane.showInputDialog(null, "Indica de nuevo el nivel "
                         + "de carga del robot aspirador\n 0% --- 100%",
                         "Error!", JOptionPane.ERROR_MESSAGE);
-                cargaEstablecida = Integer.parseInt(C);
+                cargaEstablecida = Double.parseDouble(C);
 
             }
 
@@ -121,7 +121,131 @@ public class RobotAspirador {
             //Estructura switch que determina la elección tomada 
             switch (opcion) {
                 case 1:
+                    int opAspiracion;
+                    //Estructura do while para evitar que el usuario no introduzca
+                    //una de las 2 opciones indicadas.
+                    JOptionPane.showMessageDialog(null, "Elige el modo de aspiración");
+                    do {
+                        String opAsp = JOptionPane.showInputDialog(null, "1.Modo "
+                                + "completo\n2.Modo dependencias");
+                        opAspiracion = Integer.parseInt(opAsp);
+                    } while (opAspiracion < 1 || opAspiracion > 2);
+                    //Establecemos la varibale de gasto de bateria * m² de dependencia
+                    final double GASTO_BATERIA_M = 1.5;
+                    //Estructura switch para el selección de modo de aspiración
+                    switch (opAspiracion) {
 
+                        case 1:
+                            //Establecemos las variables donde se guardaran los 
+                            //metros recorridos de cada dependencia
+                            int mCo = 0;
+                            int mSa = 0;
+                            int mBa = 0;
+                            int mDo1 = 0;
+                            int mDo2 = 0;
+                            //Declaramos la variable que acumulará la cantidad
+                            //de metros limpiados en total
+                            int acumuladorMetros = 0;
+                            //1.Establecemos el algoritmo que restará el 1.5% de
+                            //batería por cada metro recorrido de cada dependencia
+                            while (cargaEstablecida > 4 && mCocina > mCo) {
+
+                                cargaEstablecida -= GASTO_BATERIA_M;
+                                mCo++;
+                            }
+                            //2.Preguntamos si los metros recorridos son diferentes
+                            //a los metros de la dependencia para asegurarnos de
+                            //que si no la ha recorrido entera, que lo comunique
+                            //el programa.
+                            if (mCo != mCocina) {
+
+                                JOptionPane.showMessageDialog(null, "No se ha"
+                                        + " terminado de limpiar la cocina");
+
+                            }
+                            //comentario 1.
+                            while (cargaEstablecida > 4 && mSalon > mSa) {
+
+                                cargaEstablecida -= GASTO_BATERIA_M;
+                                mSa++;
+                            }
+                            //comentario 2.
+                            if (mSa != mSalon) {
+
+                                JOptionPane.showMessageDialog(null, "No se ha"
+                                        + " terminado de limpiar el salón");
+
+                            }
+                            //comentario 1.
+                            while (cargaEstablecida > 4 && mBanio > mBa) {
+
+                                cargaEstablecida -= GASTO_BATERIA_M;
+                                mBa++;
+                            }
+                            //comentario 2.
+                            if (mBa != mBanio) {
+
+                                JOptionPane.showMessageDialog(null, "No se ha"
+                                        + " terminado de limpiar el baño");
+
+                            }
+                            //comentario 1.
+                            while (cargaEstablecida > 4 && mDom1 > mDo1) {
+
+                                cargaEstablecida -= GASTO_BATERIA_M;
+                                mDo1++;
+                            }
+                            //comentario 2.
+                            if (mDo1 != mDom1) {
+
+                                JOptionPane.showMessageDialog(null, "No se ha"
+                                        + " terminado de limpiar el dormitorio 1");
+
+                            }
+                            //comentario 1.
+                            while (cargaEstablecida > 4 && mDom2 > mDo2) {
+
+                                cargaEstablecida -= GASTO_BATERIA_M;
+                                mDo2++;
+                            }
+                            //comentario 2.
+                            if (mDo2 != mDom2) {
+
+                                JOptionPane.showMessageDialog(null, "No se ha"
+                                        + " terminado de limpiar el dormitorio 2");
+
+                            }
+                            //Sumamos todos los metros recorridos
+                            acumuladorMetros = mCo + mSa + mBa + mDo1 + mDo2;
+                            //entra al if si se ha salido de las dependencias para
+                            //volver a la base de carga con su 3% batería
+                            if (cargaEstablecida == 4) {
+
+                                JOptionPane.showMessageDialog(null, "Metros limpiados"
+                                        + " en total " + acumuladorMetros + "m,\nmetros"
+                                        + " limpiados de cocina " + mCo + "m, salón "
+                                        + mSa + "m, baño " + mBa + "m, dormitorio1 "
+                                        + mDo1 + "m, dormitorio2 " + mDo2 + "m");
+                                JOptionPane.showMessageDialog(null, "Bateria"
+                                        + " insuficiente,de vuelta a la base de"
+                                        + " carga...");
+                                //sino sale todas las dependencias limpiadas y la 
+                                //batería restante
+                            } else {
+
+                                JOptionPane.showMessageDialog(null, "Metros limpiados "
+                                        + "en total " + acumuladorMetros + "m,\nmetros"
+                                        + " limpiados de cocina " + mCo + "m, salón "
+                                        + mSa + "m, baño " + mBa + "m, dormitorio1 "
+                                        + mDo1 + "m, dormitorio2 " + mDo2 + "m\nLa "
+                                        + "bateria restante es de " + cargaEstablecida
+                                        + "%");
+                            }
+                            repetirPrograma = false;
+                        case 2:
+                            
+                    }
+                    break;
                 case 2:
 
                 case 3:
