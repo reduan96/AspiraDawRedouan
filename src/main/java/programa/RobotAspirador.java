@@ -57,23 +57,21 @@ public class RobotAspirador {
                     + "Bienvenido al Aspirador Robot\nConfigurando el sistema...");
 
             //Primero Configuramos el sistema antes de mostrar el menu
-            int mCocina, mSalon, mBanio, mDom1, mDom2;
-
             JOptionPane.showMessageDialog(null, "Introduzca el número de metros"
                     + " de las dependencias(1m²--100m²)");
 
             //Creación de un bucle while para evitar así el la introducción
             //erronea de los m² de las dependencias por parte del usuario
             String mC = JOptionPane.showInputDialog(null, "m² Cocina");
-            mCocina = Integer.parseInt(mC);
+            int mCocina = Integer.parseInt(mC);
             String mS = JOptionPane.showInputDialog(null, "m² Salon");
-            mSalon = Integer.parseInt(mS);
+            int mSalon = Integer.parseInt(mS);
             String mB = JOptionPane.showInputDialog(null, "m² Baño");
-            mBanio = Integer.parseInt(mB);
+            int mBanio = Integer.parseInt(mB);
             String mD1 = JOptionPane.showInputDialog(null, "m² Dormitorio 1");
-            mDom1 = Integer.parseInt(mD1);
+            int mDom1 = Integer.parseInt(mD1);
             String mD2 = JOptionPane.showInputDialog(null, "m² Dormitorio 2");
-            mDom2 = Integer.parseInt(mD2);
+            int mDom2 = Integer.parseInt(mD2);
             while (mCocina < 0 || mCocina > 100 || mSalon < 0 || mSalon > 100
                     || mBanio < 0 || mBanio > 100 || mDom1 < 0 || mDom1 > 100
                     || mDom2 < 0 || mDom2 > 100) {
@@ -98,11 +96,9 @@ public class RobotAspirador {
             //Establecemos el nivel de carga del robot, tiene que estar entre el 
             //0% y 100% e instanciamos nivelCarga para guardar la variable y 
             //establecemos un bucle while para filtrar posibles errores.
-            int cargaEstablecida;
-
             String C = JOptionPane.showInputDialog(null, "Indica el nivel "
                     + "de carga del robot aspirador\n 0% --- 100%");
-            cargaEstablecida = Integer.parseInt(C);
+            int cargaEstablecida = Integer.parseInt(C);
 
             while (cargaEstablecida < 0 || cargaEstablecida > 100) {
 
@@ -113,11 +109,14 @@ public class RobotAspirador {
 
             }
 
-            String op = JOptionPane.showInputDialog(null, "MENU\n 1.ASPIRACIÓN\n"
-                    + " 2.ASPIRACIÓN Y FREGADO\n 3.ESTADO GENERAL\n "
-                    + "4.BASE DE CARGA\n 5.SALIR");
-            //Hacemos el parse para convertir el string en un int
-            int opcion = Integer.parseInt(op);
+            int opcion;
+            do {
+                String op = JOptionPane.showInputDialog(null, "MENU\n 1.ASPIRACIÓN\n"
+                        + " 2.ASPIRACIÓN Y FREGADO\n 3.ESTADO GENERAL\n "
+                        + "4.BASE DE CARGA\n 5.SALIR");
+                opcion = Integer.parseInt(op); //Hacemos el parse para convertir
+                //el string en un int
+            } while (opcion < 1 || opcion > 5);
 
             //Estructura switch que determina la elección tomada 
             switch (opcion) {
