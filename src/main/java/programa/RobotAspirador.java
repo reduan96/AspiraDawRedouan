@@ -62,27 +62,38 @@ public class RobotAspirador {
             JOptionPane.showMessageDialog(null, "Introduzca el número de metros"
                     + " de las dependencias(1m²--100m²)");
 
-            //Creación de un bucle do while para evitar así el la introducción
+            //Creación de un bucle while para evitar así el la introducción
             //erronea de los m² de las dependencias por parte del usuario
-            do {
-                String mC = JOptionPane.showInputDialog(null, "Introduzca los metros"
-                        + " correspondientes de la cocina");
-                mCocina = Integer.parseInt(mC);
-                String mS = JOptionPane.showInputDialog(null, "Introduzca los metros"
-                        + " correpsondientes del salon");
-                mSalon = Integer.parseInt(mS);
-                String mB = JOptionPane.showInputDialog(null, "Introduzca los metros"
-                        + " correspondientes al baño");
-                mBanio = Integer.parseInt(mB);
-                String mD1 = JOptionPane.showInputDialog(null, "Introduzca los metros"
-                        + " correspondientes al dormitorio 1");
-                mDom1 = Integer.parseInt(mD1);
-                String mD2 = JOptionPane.showInputDialog(null, "Introduzca los metros"
-                        + " correspondientes al dormitorio 2");
-                mDom2 = Integer.parseInt(mD2);
-            } while (mCocina < 0 || mCocina > 100 || mSalon < 0 || mSalon > 100
+            String mC = JOptionPane.showInputDialog(null, "m² Cocina");
+            mCocina = Integer.parseInt(mC);
+            String mS = JOptionPane.showInputDialog(null, "m² Salon");
+            mSalon = Integer.parseInt(mS);
+            String mB = JOptionPane.showInputDialog(null, "m² Baño");
+            mBanio = Integer.parseInt(mB);
+            String mD1 = JOptionPane.showInputDialog(null, "m² Dormitorio 1");
+            mDom1 = Integer.parseInt(mD1);
+            String mD2 = JOptionPane.showInputDialog(null, "m² Dormitorio 2");
+            mDom2 = Integer.parseInt(mD2);
+            while (mCocina < 0 || mCocina > 100 || mSalon < 0 || mSalon > 100
                     || mBanio < 0 || mBanio > 100 || mDom1 < 0 || mDom1 > 100
-                    || mDom2 < 0 || mDom2 > 100);
+                    || mDom2 < 0 || mDom2 > 100) {
+                mC = JOptionPane.showInputDialog(null, "Introduzca de nuevo "
+                        + "m² Cocina", "Error!", JOptionPane.ERROR_MESSAGE);
+                mCocina = Integer.parseInt(mC);
+                mS = JOptionPane.showInputDialog(null, "Introduzca de nuevo "
+                        + "m² Salon", "Error!", JOptionPane.ERROR_MESSAGE);
+                mSalon = Integer.parseInt(mS);
+                mB = JOptionPane.showInputDialog(null, "Introduzca de nuevo "
+                        + "m² Baño", "Error!", JOptionPane.ERROR_MESSAGE);
+                mBanio = Integer.parseInt(mB);
+                mD1 = JOptionPane.showInputDialog(null, "Introduzca de nuevo "
+                        + "m² Dormitorio 1", "Error!", JOptionPane.ERROR_MESSAGE);
+                mDom1 = Integer.parseInt(mD1);
+                mD2 = JOptionPane.showInputDialog(null, "Introduzca de nuevo "
+                        + "m² Dormitorio 2", "Error!", JOptionPane.ERROR_MESSAGE);
+                mDom2 = Integer.parseInt(mD2);
+
+            }
 
             //Establecemos el nivel de carga del robot, tiene que estar entre el 
             //0% y 100% e instanciamos nivelCarga para guardar la variable
@@ -124,12 +135,12 @@ public class RobotAspirador {
                     if (confirmacion == JOptionPane.YES_OPTION) {
 
                         repetirPrograma = false;
-                        JOptionPane.showMessageDialog(null, "Hasta luego :)");
+                        JOptionPane.showMessageDialog(null, "Finalizando programa...");
 
                     } else {
 
                         repetirPrograma = true;
-                        JOptionPane.showMessageDialog(null, "Repitiendo el programa");
+                        JOptionPane.showMessageDialog(null, "Repitiendo programa...");
 
                     }
 
