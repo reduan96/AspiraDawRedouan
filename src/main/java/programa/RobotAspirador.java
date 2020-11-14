@@ -254,8 +254,15 @@ public class RobotAspirador {
                             repetirPrograma = false;
                             continue;
                         case 2:
+                            //Declaración de la variable opción dependencias a limpiar
                             int opDep;
+                            //Bucle while que determina que se limpien las dependencias 
+                            //hasta que la batería se agote a su límite para que 
+                            //el robot se vaya a su lugar de carga
                             while (cargaEstablecida != 4) {
+                                //Bucle do while para filtrar la introducción erronea
+                                //de un número de elección que no pertenezca a 
+                                //ninguna dependencia
                                 do {
 
                                     String op = JOptionPane.showInputDialog(null, "Introduce"
@@ -264,6 +271,7 @@ public class RobotAspirador {
                                     opDep = Integer.parseInt(op);
 
                                 } while (opDep < 1 || opDep > 6);
+                                //Bucle switch que determina la dependencia seleccionada
                                 switch (opDep) {
 
                                     case 1:
@@ -302,7 +310,9 @@ public class RobotAspirador {
                                         }
                                         break;
                                 }
-
+                                //Bucle switch anidado que comprueba en cada caso
+                                //de la dependencia a limpiar si el robot tiene
+                                //suficiente batería para ello o no.
                                 switch (opDep) {
                                     case 1:
                                         if (mCo != mCocina) {
