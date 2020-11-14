@@ -132,17 +132,17 @@ public class RobotAspirador {
                     } while (opAspiracion < 1 || opAspiracion > 2);
                     //Establecemos la varibale de gasto de bateria * m² de dependencia
                     final double GASTO_BATERIA_M = 1.5;
+                    //Establecemos las variables donde se guardaran los 
+                    //metros recorridos de cada dependencia
+                    int mCo = 0;
+                    int mSa = 0;
+                    int mBa = 0;
+                    int mDo1 = 0;
+                    int mDo2 = 0;
                     //Estructura switch para el selección de modo de aspiración
                     switch (opAspiracion) {
 
                         case 1:
-                            //Establecemos las variables donde se guardaran los 
-                            //metros recorridos de cada dependencia
-                            int mCo = 0;
-                            int mSa = 0;
-                            int mBa = 0;
-                            int mDo1 = 0;
-                            int mDo2 = 0;
                             //Declaramos la variable que acumulará la cantidad
                             //de metros limpiados en total
                             int acumuladorMetros = 0;
@@ -254,9 +254,121 @@ public class RobotAspirador {
                             repetirPrograma = false;
                             continue;
                         case 2:
+                            int opDep;
+                            while (cargaEstablecida != 4) {
+                                do {
 
+                                    String op = JOptionPane.showInputDialog(null, "Introduce"
+                                            + " la dependencia deseada\n1.Cocina\n2.Salón"
+                                            + "\n3.Baño\n4.Dormitorio1\n5.Dormitorio2");
+                                    opDep = Integer.parseInt(op);
+
+                                } while (opDep < 1 || opDep > 6);
+                                switch (opDep) {
+
+                                    case 1:
+                                        while (cargaEstablecida > 4 && mCocina > mCo) {
+
+                                            cargaEstablecida -= GASTO_BATERIA_M;
+                                            mCo++;
+                                        }
+                                        break;
+                                    case 2:
+                                        while (cargaEstablecida > 4 && mSalon > mSa) {
+
+                                            cargaEstablecida -= GASTO_BATERIA_M;
+                                            mSa++;
+                                        }
+                                        break;
+                                    case 3:
+                                        while (cargaEstablecida > 4 && mBanio > mBa) {
+
+                                            cargaEstablecida -= GASTO_BATERIA_M;
+                                            mBa++;
+                                        }
+                                        break;
+                                    case 4:
+                                        while (cargaEstablecida > 4 && mDom1 > mDo1) {
+
+                                            cargaEstablecida -= GASTO_BATERIA_M;
+                                            mDo1++;
+                                        }
+                                        break;
+                                    case 5:
+                                        while (cargaEstablecida > 4 && mDom2 > mDo2) {
+
+                                            cargaEstablecida -= GASTO_BATERIA_M;
+                                            mDo2++;
+                                        }
+                                        break;
+                                }
+
+                                switch (opDep) {
+                                    case 1:
+                                        if (mCo != mCocina) {
+
+                                            JOptionPane.showMessageDialog(null, "No se ha"
+                                                    + " terminado de limpiar la cocina");
+
+                                        } else {
+                                            JOptionPane.showMessageDialog(null, "Se ha limpiado"
+                                                    + " la cocina que tiene " + mCo + " m");
+                                        }
+                                        break;
+                                    case 2:
+                                        if (mSa != mSalon) {
+
+                                            JOptionPane.showMessageDialog(null, "No se ha"
+                                                    + " terminado de limpiar el salón");
+
+                                        } else {
+                                            JOptionPane.showMessageDialog(null, "Se ha limpiado"
+                                                    + " el salón que tiene " + mSa + " m");
+                                        }
+                                        break;
+                                    case 3:
+                                        if (mBa != mBanio) {
+
+                                            JOptionPane.showMessageDialog(null, "No se ha"
+                                                    + " terminado de limpiar el baño");
+
+                                        } else {
+                                            JOptionPane.showMessageDialog(null, "Se ha limpiado"
+                                                    + " el baño que tiene " + mBa + " m");
+                                        }
+                                        break;
+                                    case 4:
+                                        if (mDo1 != mDom1) {
+
+                                            JOptionPane.showMessageDialog(null, "No se ha"
+                                                    + " terminado de limpiar el dormitorio 1");
+
+                                        } else {
+                                            JOptionPane.showMessageDialog(null, "Se ha limpiado"
+                                                    + " el dormitorio1 que tiene " + mDo1 + " m");
+                                        }
+                                        break;
+                                    case 5:
+                                        if (mDo2 != mDom2) {
+
+                                            JOptionPane.showMessageDialog(null, "No se ha"
+                                                    + " terminado de limpiar el dormitorio 2");
+
+                                        } else {
+                                            JOptionPane.showMessageDialog(null, "Se ha limpiado"
+                                                    + " el dormitorio2 que tiene " + mDo2 + " m");
+                                        }
+                                        break;
+                                }
+                                JOptionPane.showMessageDialog(null, "La bateria"
+                                        + " restante es de" + cargaEstablecida + "%");
+
+                            }
+                            JOptionPane.showMessageDialog(null, "Batería "
+                                    + "insuficiente.\nVolviendo a la base de carga...");
                     }
-                    break;
+                    repetirPrograma = false;
+                    continue;
                 case 2:
 
                 case 3:
