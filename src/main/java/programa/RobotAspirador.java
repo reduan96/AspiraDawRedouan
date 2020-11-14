@@ -153,6 +153,8 @@ public class RobotAspirador {
                                 cargaEstablecida -= GASTO_BATERIA_M;
                                 mCo++;
                             }
+                            JOptionPane.showMessageDialog(null, "Batería restante "
+                                    + cargaEstablecida + "%");
                             //2.Preguntamos si los metros recorridos son diferentes
                             //a los metros de la dependencia para asegurarnos de
                             //que si no la ha recorrido entera, que lo comunique
@@ -169,6 +171,8 @@ public class RobotAspirador {
                                 cargaEstablecida -= GASTO_BATERIA_M;
                                 mSa++;
                             }
+                            JOptionPane.showMessageDialog(null, "Batería restante "
+                                    + cargaEstablecida + "%");
                             //comentario 2.
                             if (mSa != mSalon) {
 
@@ -182,6 +186,8 @@ public class RobotAspirador {
                                 cargaEstablecida -= GASTO_BATERIA_M;
                                 mBa++;
                             }
+                            JOptionPane.showMessageDialog(null, "Batería restante "
+                                    + cargaEstablecida + "%");
                             //comentario 2.
                             if (mBa != mBanio) {
 
@@ -195,6 +201,8 @@ public class RobotAspirador {
                                 cargaEstablecida -= GASTO_BATERIA_M;
                                 mDo1++;
                             }
+                            JOptionPane.showMessageDialog(null, "Batería restante "
+                                    + cargaEstablecida + "%");
                             //comentario 2.
                             if (mDo1 != mDom1) {
 
@@ -208,6 +216,8 @@ public class RobotAspirador {
                                 cargaEstablecida -= GASTO_BATERIA_M;
                                 mDo2++;
                             }
+                            JOptionPane.showMessageDialog(null, "Batería restante "
+                                    + cargaEstablecida + "%");
                             //comentario 2.
                             if (mDo2 != mDom2) {
 
@@ -242,8 +252,9 @@ public class RobotAspirador {
                                         + "%");
                             }
                             repetirPrograma = false;
+                            continue;
                         case 2:
-                            
+
                     }
                     break;
                 case 2:
