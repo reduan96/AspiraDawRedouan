@@ -165,7 +165,7 @@ public class RobotAspirador {
 
                                 JOptionPane.showMessageDialog(null, "Se ha aspirado"
                                         + " la cocina que tiene " + mCo + " m\n"
-                                        + "Batería restante " + cargaEstablecida);
+                                        + "Batería restante " + cargaEstablecida + "%");
 
                             }
                             //comentario 1.
@@ -184,7 +184,7 @@ public class RobotAspirador {
 
                                 JOptionPane.showMessageDialog(null, "Se ha aspirado"
                                         + " el salón que tiene " + mSa + " m\n"
-                                        + "Batería restante " + cargaEstablecida);
+                                        + "Batería restante " + cargaEstablecida + "%");
 
                             }
                             //comentario 1.
@@ -203,7 +203,7 @@ public class RobotAspirador {
 
                                 JOptionPane.showMessageDialog(null, "Se ha aspirado"
                                         + " el baño que tiene " + mBa + " m\n"
-                                        + "Batería restante " + cargaEstablecida);
+                                        + "Batería restante " + cargaEstablecida + "%");
 
                             }
                             //comentario 1.
@@ -222,7 +222,7 @@ public class RobotAspirador {
 
                                 JOptionPane.showMessageDialog(null, "Se ha aspirado"
                                         + " el dormitorio1 que tiene " + mDo1 + " m\n"
-                                        + "Batería restante " + cargaEstablecida);
+                                        + "Batería restante " + cargaEstablecida + "%");
 
                             }
                             //comentario 1.
@@ -241,7 +241,7 @@ public class RobotAspirador {
 
                                 JOptionPane.showMessageDialog(null, "Se ha aspirado"
                                         + " el dormitorio2 que tiene " + mDo2 + " m\n"
-                                        + "Batería restante " + cargaEstablecida);
+                                        + "Batería restante " + cargaEstablecida + "%");
 
                             }
                             //Sumamos todos los metros recorridos
@@ -404,7 +404,7 @@ public class RobotAspirador {
                     int acumuladorMetros;
                     //1.Establecemos el algoritmo que restará el 2.25% de
                     //batería por cada metro recorrido de cada dependencia
-                    while (cargaEstablecida > 4 && mCocina > mCo) {
+                    while (cargaEstablecida > 5 && mCocina > mCo) {
 
                         cargaEstablecida -= GASTO_BAT_ASP_FREG;
                         mCo++;
@@ -425,7 +425,7 @@ public class RobotAspirador {
 
                     }
                     //comentario 1.
-                    while (cargaEstablecida > 4 && mSalon > mSa) {
+                    while (cargaEstablecida > 5 && mSalon > mSa) {
 
                         cargaEstablecida -= GASTO_BAT_ASP_FREG;
                         mSa++;
@@ -443,7 +443,7 @@ public class RobotAspirador {
 
                     }
                     //comentario 1.
-                    while (cargaEstablecida > 4 && mBanio > mBa) {
+                    while (cargaEstablecida > 5 && mBanio > mBa) {
 
                         cargaEstablecida -= GASTO_BAT_ASP_FREG;
                         mBa++;
@@ -461,7 +461,7 @@ public class RobotAspirador {
 
                     }
                     //comentario 1.
-                    while (cargaEstablecida > 4 && mDom1 > mDo1) {
+                    while (cargaEstablecida > 5 && mDom1 > mDo1) {
 
                         cargaEstablecida -= GASTO_BAT_ASP_FREG;
                         mDo1++;
@@ -479,7 +479,7 @@ public class RobotAspirador {
 
                     }
                     //comentario 1.
-                    while (cargaEstablecida > 4 && mDom2 > mDo2) {
+                    while (cargaEstablecida > 5 && mDom2 > mDo2) {
 
                         cargaEstablecida -= GASTO_BAT_ASP_FREG;
                         mDo2++;
@@ -488,7 +488,7 @@ public class RobotAspirador {
                     if (mDo2 != mDom2) {
 
                         JOptionPane.showMessageDialog(null, "No se ha"
-                                + " terminado de aspirar y fregar el dormitorio 2");
+                                + " terminado de aspirar y fregar el dormitorio2");
 
                     } else {
 
@@ -500,7 +500,7 @@ public class RobotAspirador {
                     acumuladorMetros = mCo + mSa + mBa + mDo1 + mDo2;
                     //entra al if si se ha salido de las dependencias para
                     //volver a la base de carga con su 3% batería
-                    if (cargaEstablecida == 4) {
+                    if (cargaEstablecida == 5) {
 
                         JOptionPane.showMessageDialog(null, "Metros limpiados"
                                 + " en total " + acumuladorMetros + "m,\nmetros"
@@ -526,7 +526,23 @@ public class RobotAspirador {
                 case 3:
 
                 case 4:
+                    //Instaciamos la variable i para el bucle for
+                    double i;
+                    JOptionPane.showMessageDialog(null, "Estado de carga de batería");
+                    //Realizamos el bucle for con el algoritmo para cargar la bateria
+                    for (i = 0; i < 100; i++) {
 
+                        System.out.println("Cargando batería..." + i);
+                        //Bucle if para que la carga no se pase del 100%
+                        if (cargaEstablecida < 100) {
+
+                            i++;
+                        }
+                    }
+                    cargaEstablecida = i;
+                    JOptionPane.showMessageDialog(null, "Carga finalizada\n"
+                            + "Estado batería " + cargaEstablecida + "%");
+                    break;
                 case 5:
                     /*Al escribir 5 que corresponde a salir entramos aqui y nos
                     pregunta que si estamos seguros de salir si le damos si este
