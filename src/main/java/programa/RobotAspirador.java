@@ -732,6 +732,7 @@ public class RobotAspirador {
     }
 
     //Creación del método encargado de la carga de la batería
+    //MODULARIZAR
     public static void cargaBateria() {
 
         //Instaciamos la variable i para el bucle for
