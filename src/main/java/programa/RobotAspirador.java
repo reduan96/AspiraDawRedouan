@@ -422,10 +422,12 @@ public class RobotAspirador {
                         case 2:
                             //Declaración de la variable opción dependencias a limpiar
                             int opDep;
-                            //Bucle while que determina que se limpien las dependencias 
-                            //hasta que la batería se agote a su límite para que 
-                            //el robot se vaya a su lugar de carga
-                            while (cargaEstablecida != 4) {
+                            boolean repetirOpDep = true;
+                            while (repetirOpDep) {
+                                //Bucle while que determina que se limpien las dependencias 
+                                //hasta que la batería se agote a su límite para que 
+                                //el robot se vaya a su lugar de carga
+                                //while (cargaEstablecida != 4) {
                                 //Bucle do while para filtrar la introducción erronea
                                 //de un número de elección que no pertenezca a 
                                 //ninguna dependencia
@@ -433,10 +435,11 @@ public class RobotAspirador {
 
                                     String op = JOptionPane.showInputDialog(null, "Introduce"
                                             + " la dependencia deseada\n1.Cocina\n2.Salón"
-                                            + "\n3.Baño\n4.Dormitorio1\n5.Dormitorio2");
+                                            + "\n3.Baño\n4.Dormitorio1\n5.Dormitorio2\n"
+                                            + "6.Atrás");
                                     opDep = Integer.parseInt(op);
 
-                                } while (opDep < 1 || opDep > 6);
+                                } while (opDep < 1 || opDep > 7);
                                 //Bucle switch que determina la dependencia seleccionada
                                 switch (opDep) {
 
@@ -486,8 +489,12 @@ public class RobotAspirador {
                                             JOptionPane.showMessageDialog(null, "No se ha"
                                                     + " terminado de aspirar la cocina\n"
                                                     + "Posición: " + posicion[0]);
+                                            JOptionPane.showMessageDialog(null, "Batería "
+                                                    + "insuficiente.\nVolviendo a la base de carga..."
+                                                    + "Posición: " + posicion[5]);
 
-                                        } else {
+                                        }
+                                        if (cargaEstablecida != 4) {
                                             JOptionPane.showMessageDialog(null, "Se ha aspirado"
                                                     + " la cocina que tiene " + mCo + " m");
                                         }
@@ -498,8 +505,12 @@ public class RobotAspirador {
                                             JOptionPane.showMessageDialog(null, "No se ha"
                                                     + " terminado de aspirar el salón\n"
                                                     + "Posición: " + posicion[1]);
+                                            JOptionPane.showMessageDialog(null, "Batería "
+                                                    + "insuficiente.\nVolviendo a la base de carga..."
+                                                    + "Posición: " + posicion[5]);
 
-                                        } else {
+                                        }
+                                        if (cargaEstablecida != 4) {
                                             JOptionPane.showMessageDialog(null, "Se ha aspirado"
                                                     + " el salón que tiene " + mSa + " m");
                                         }
@@ -510,8 +521,12 @@ public class RobotAspirador {
                                             JOptionPane.showMessageDialog(null, "No se ha"
                                                     + " terminado de aspirar el baño\n"
                                                     + "Posición: " + posicion[2]);
+                                            JOptionPane.showMessageDialog(null, "Batería "
+                                                    + "insuficiente.\nVolviendo a la base de carga..."
+                                                    + "Posición: " + posicion[5]);
 
-                                        } else {
+                                        }
+                                        if (cargaEstablecida != 4) {
                                             JOptionPane.showMessageDialog(null, "Se ha aspirado"
                                                     + " el baño que tiene " + mBa + " m");
                                         }
@@ -522,8 +537,12 @@ public class RobotAspirador {
                                             JOptionPane.showMessageDialog(null, "No se ha"
                                                     + " terminado de aspirar el dormitorio 1\n"
                                                     + "Posición: " + posicion[3]);
+                                            JOptionPane.showMessageDialog(null, "Batería "
+                                                    + "insuficiente.\nVolviendo a la base de carga..."
+                                                    + "Posición: " + posicion[5]);
 
-                                        } else {
+                                        }
+                                        if (cargaEstablecida != 4) {
                                             JOptionPane.showMessageDialog(null, "Se ha aspirado"
                                                     + " el dormitorio1 que tiene " + mDo1 + " m");
                                         }
@@ -534,22 +553,23 @@ public class RobotAspirador {
                                             JOptionPane.showMessageDialog(null, "No se ha"
                                                     + " terminado de aspirar el dormitorio 2\n"
                                                     + "Posición: " + posicion[4]);
-
-                                        } else {
+                                            JOptionPane.showMessageDialog(null, "Batería "
+                                                    + "insuficiente.\nVolviendo a la base de carga..."
+                                                    + "Posición: " + posicion[5]);
+                                        }
+                                        if (cargaEstablecida != 4) {
                                             JOptionPane.showMessageDialog(null, "Se ha aspirado"
                                                     + " el dormitorio2 que tiene " + mDo2 + " m");
                                         }
                                         break;
+                                    case 6:
+                                        repetirOpDep = false;
+                                        break;
                                 }
-                                JOptionPane.showMessageDialog(null, "La bateria"
-                                        + " restante es de" + cargaEstablecida + "%");
-
                             }
-                            JOptionPane.showMessageDialog(null, "Batería "
-                                    + "insuficiente.\nVolviendo a la base de carga..."
-                                    + "Posición: " + posicion[5]);
-                        //Llamamos al método de carga para que se cargue la batería
-
+                            //Llamamos al método de carga para que se cargue la batería
+                            //antes de salir del submenú.
+                            cargaBateria();
                     }
                     break;
                 case 2:
@@ -711,11 +731,11 @@ public class RobotAspirador {
 
     }
 
+    //Creación del método encargado de la carga de la batería
     public static void cargaBateria() {
 
         //Instaciamos la variable i para el bucle for
         double i;
-        JOptionPane.showMessageDialog(null, "Estado de carga de batería");
         //Realizamos el bucle for con el algoritmo para cargar la bateria
         for (i = 0; i < 100; i++) {
 
