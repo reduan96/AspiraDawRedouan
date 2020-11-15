@@ -819,10 +819,12 @@ public class RobotAspirador {
 
     }
 
+    //Creación del método encargado de la elección estado general del programa
     public static void estadoGeneral() {
 
         //Los m² de la casa son la suma de todos
         mCuadradosCasa = mCocina + mSalon + mBanio + mDom1 + mDom2;
+        
         JOptionPane.showMessageDialog(null, fecha + "\nEstado batería: "
                 + cargaEstablecida + "%" + "\nCocina: " + mCocina + "m²"
                 + "\nSalón: " + mSalon + "m²" + "\nBaño: " + mBanio + "m²"
