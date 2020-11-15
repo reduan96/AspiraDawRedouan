@@ -182,14 +182,6 @@ public class RobotAspirador {
                                             + mDo1 + "m, dormitorio2 " + mDo2 + "m\n"
                                             + "bateria restante es de " + cargaEstablecida
                                             + "%");
-                                    JOptionPane.showMessageDialog(null, "Bateria"
-                                            + " insuficiente,de vuelta a la base de"
-                                            + " carga...\nPosición: " + posicion[5]);
-                                    //Llamamos al método de base de carga para que 
-                                    //el robot este cargado al 100% al repetir el menú
-                                    cargaBateria();
-                                    //sino sale todas las dependencias limpiadas y 
-                                    //muestra la batería restante
                                 } else {
 
                                     JOptionPane.showMessageDialog(null, "Metros limpiados "
@@ -234,14 +226,6 @@ public class RobotAspirador {
                                             + mDo1 + "m, dormitorio2 " + mDo2 + "m\n"
                                             + "bateria restante es de " + cargaEstablecida
                                             + "%");
-                                    JOptionPane.showMessageDialog(null, "Bateria"
-                                            + " insuficiente,de vuelta a la base de"
-                                            + " carga...\nPosición: " + posicion[5]);
-                                    //Llamamos al método de base de carga para que 
-                                    //el robot este cargado al 100% al repetir el menú
-                                    cargaBateria();
-                                    //sino sale todas las dependencias limpiadas y 
-                                    //muestra la batería restante
                                 } else {
 
                                     JOptionPane.showMessageDialog(null, "Metros limpiados "
@@ -286,14 +270,6 @@ public class RobotAspirador {
                                             + mDo1 + "m, dormitorio2 " + mDo2 + "m\n"
                                             + "bateria restante es de " + cargaEstablecida
                                             + "%");
-                                    JOptionPane.showMessageDialog(null, "Bateria"
-                                            + " insuficiente,de vuelta a la base de"
-                                            + " carga...\nPosición: " + posicion[5]);
-                                    //Llamamos al método de base de carga para que 
-                                    //el robot este cargado al 100% al repetir el menú
-                                    cargaBateria();
-                                    //sino sale todas las dependencias limpiadas y 
-                                    //muestra la batería restante
                                 } else {
 
                                     JOptionPane.showMessageDialog(null, "Metros limpiados "
@@ -338,14 +314,6 @@ public class RobotAspirador {
                                             + mDo1 + "m, dormitorio2 " + mDo2 + "m\n"
                                             + "bateria restante es de " + cargaEstablecida
                                             + "%");
-                                    JOptionPane.showMessageDialog(null, "Bateria"
-                                            + " insuficiente,de vuelta a la base de"
-                                            + " carga...\nPosición: " + posicion[5]);
-                                    //Llamamos al método de base de carga para que 
-                                    //el robot este cargado al 100% al repetir el menú
-                                    cargaBateria();
-                                    //sino sale todas las dependencias limpiadas y 
-                                    //muestra la batería restante
                                 } else {
 
                                     JOptionPane.showMessageDialog(null, "Metros limpiados "
@@ -390,14 +358,6 @@ public class RobotAspirador {
                                             + mDo1 + "m, dormitorio2 " + mDo2 + "m\n"
                                             + "bateria restante es de " + cargaEstablecida
                                             + "%");
-                                    JOptionPane.showMessageDialog(null, "Bateria"
-                                            + " insuficiente,de vuelta a la base de"
-                                            + " carga...\nPosición: " + posicion[5]);
-                                    //Llamamos al método de base de carga para que 
-                                    //el robot este cargado al 100% al repetir el menú
-                                    cargaBateria();
-                                    //sino sale todas las dependencias limpiadas y 
-                                    //muestra la batería restante
                                 } else {
 
                                     JOptionPane.showMessageDialog(null, "Metros limpiados "
@@ -593,6 +553,28 @@ public class RobotAspirador {
 
                         JOptionPane.showMessageDialog(null, "No se ha"
                                 + " terminado de aspirar y fregar la cocina");
+                        //Sumamos todos los metros recorridos
+                        acumuladorMetros = mCo + mSa + mBa + mDo1 + mDo2;
+                        //entra al if si se ha salido de las dependencias para
+                        //volver a la base de carga con su 3% batería
+                        if (cargaEstablecida == 5) {
+
+                            JOptionPane.showMessageDialog(null, "Metros limpiados"
+                                    + " en total " + acumuladorMetros + "m,\nmetros"
+                                    + " limpiados de cocina " + mCo + "m, salón "
+                                    + mSa + "m, baño " + mBa + "m, dormitorio1 "
+                                    + mDo1 + "m, dormitorio2 " + mDo2 + "m");
+                        } else {
+
+                            JOptionPane.showMessageDialog(null, "Metros limpiados "
+                                    + "en total " + acumuladorMetros + "m,\nmetros"
+                                    + " limpiados de cocina " + mCo + "m, salón "
+                                    + mSa + "m, baño " + mBa + "m, dormitorio1 "
+                                    + mDo1 + "m, dormitorio2 " + mDo2 + "m\nLa "
+                                    + "bateria restante es de " + cargaEstablecida
+                                    + "%");
+                        }
+                        break;
 
                     } else {
 
@@ -611,6 +593,28 @@ public class RobotAspirador {
 
                         JOptionPane.showMessageDialog(null, "No se ha"
                                 + " terminado de aspirar y fregar el salón");
+                        //Sumamos todos los metros recorridos
+                        acumuladorMetros = mCo + mSa + mBa + mDo1 + mDo2;
+                        //entra al if si se ha salido de las dependencias para
+                        //volver a la base de carga con su 3% batería
+                        if (cargaEstablecida == 5) {
+
+                            JOptionPane.showMessageDialog(null, "Metros limpiados"
+                                    + " en total " + acumuladorMetros + "m,\nmetros"
+                                    + " limpiados de cocina " + mCo + "m, salón "
+                                    + mSa + "m, baño " + mBa + "m, dormitorio1 "
+                                    + mDo1 + "m, dormitorio2 " + mDo2 + "m");
+                        } else {
+
+                            JOptionPane.showMessageDialog(null, "Metros limpiados "
+                                    + "en total " + acumuladorMetros + "m,\nmetros"
+                                    + " limpiados de cocina " + mCo + "m, salón "
+                                    + mSa + "m, baño " + mBa + "m, dormitorio1 "
+                                    + mDo1 + "m, dormitorio2 " + mDo2 + "m\nLa "
+                                    + "bateria restante es de " + cargaEstablecida
+                                    + "%");
+                        }
+                        break;
 
                     } else {
 
@@ -629,6 +633,28 @@ public class RobotAspirador {
 
                         JOptionPane.showMessageDialog(null, "No se ha"
                                 + " terminado de aspirar y fregar el baño");
+                        //Sumamos todos los metros recorridos
+                        acumuladorMetros = mCo + mSa + mBa + mDo1 + mDo2;
+                        //entra al if si se ha salido de las dependencias para
+                        //volver a la base de carga con su 3% batería
+                        if (cargaEstablecida == 5) {
+
+                            JOptionPane.showMessageDialog(null, "Metros limpiados"
+                                    + " en total " + acumuladorMetros + "m,\nmetros"
+                                    + " limpiados de cocina " + mCo + "m, salón "
+                                    + mSa + "m, baño " + mBa + "m, dormitorio1 "
+                                    + mDo1 + "m, dormitorio2 " + mDo2 + "m");
+                        } else {
+
+                            JOptionPane.showMessageDialog(null, "Metros limpiados "
+                                    + "en total " + acumuladorMetros + "m,\nmetros"
+                                    + " limpiados de cocina " + mCo + "m, salón "
+                                    + mSa + "m, baño " + mBa + "m, dormitorio1 "
+                                    + mDo1 + "m, dormitorio2 " + mDo2 + "m\nLa "
+                                    + "bateria restante es de " + cargaEstablecida
+                                    + "%");
+                        }
+                        break;
 
                     } else {
 
@@ -647,6 +673,28 @@ public class RobotAspirador {
 
                         JOptionPane.showMessageDialog(null, "No se ha"
                                 + " terminado de aspirar y fregar el dormitorio1");
+                        //Sumamos todos los metros recorridos
+                        acumuladorMetros = mCo + mSa + mBa + mDo1 + mDo2;
+                        //entra al if si se ha salido de las dependencias para
+                        //volver a la base de carga con su 3% batería
+                        if (cargaEstablecida == 5) {
+
+                            JOptionPane.showMessageDialog(null, "Metros limpiados"
+                                    + " en total " + acumuladorMetros + "m,\nmetros"
+                                    + " limpiados de cocina " + mCo + "m, salón "
+                                    + mSa + "m, baño " + mBa + "m, dormitorio1 "
+                                    + mDo1 + "m, dormitorio2 " + mDo2 + "m");
+                        } else {
+
+                            JOptionPane.showMessageDialog(null, "Metros limpiados "
+                                    + "en total " + acumuladorMetros + "m,\nmetros"
+                                    + " limpiados de cocina " + mCo + "m, salón "
+                                    + mSa + "m, baño " + mBa + "m, dormitorio1 "
+                                    + mDo1 + "m, dormitorio2 " + mDo2 + "m\nLa "
+                                    + "bateria restante es de " + cargaEstablecida
+                                    + "%");
+                        }
+                        break;
 
                     } else {
 
@@ -665,6 +713,28 @@ public class RobotAspirador {
 
                         JOptionPane.showMessageDialog(null, "No se ha"
                                 + " terminado de aspirar y fregar el dormitorio2");
+                        //Sumamos todos los metros recorridos
+                        acumuladorMetros = mCo + mSa + mBa + mDo1 + mDo2;
+                        //entra al if si se ha salido de las dependencias para
+                        //volver a la base de carga con su 3% batería
+                        if (cargaEstablecida == 5) {
+
+                            JOptionPane.showMessageDialog(null, "Metros limpiados"
+                                    + " en total " + acumuladorMetros + "m,\nmetros"
+                                    + " limpiados de cocina " + mCo + "m, salón "
+                                    + mSa + "m, baño " + mBa + "m, dormitorio1 "
+                                    + mDo1 + "m, dormitorio2 " + mDo2 + "m");
+                        } else {
+
+                            JOptionPane.showMessageDialog(null, "Metros limpiados "
+                                    + "en total " + acumuladorMetros + "m,\nmetros"
+                                    + " limpiados de cocina " + mCo + "m, salón "
+                                    + mSa + "m, baño " + mBa + "m, dormitorio1 "
+                                    + mDo1 + "m, dormitorio2 " + mDo2 + "m\nLa "
+                                    + "bateria restante es de " + cargaEstablecida
+                                    + "%");
+                        }
+                        break;
 
                     } else {
 
@@ -672,35 +742,9 @@ public class RobotAspirador {
                                 + "el dormitorio2.\nBatería restante " + cargaEstablecida + "%");
 
                     }
-                    //Sumamos todos los metros recorridos
-                    acumuladorMetros = mCo + mSa + mBa + mDo1 + mDo2;
-                    //entra al if si se ha salido de las dependencias para
-                    //volver a la base de carga con su 3% batería
-                    if (cargaEstablecida == 5) {
-
-                        JOptionPane.showMessageDialog(null, "Metros limpiados"
-                                + " en total " + acumuladorMetros + "m,\nmetros"
-                                + " limpiados de cocina " + mCo + "m, salón "
-                                + mSa + "m, baño " + mBa + "m, dormitorio1 "
-                                + mDo1 + "m, dormitorio2 " + mDo2 + "m");
-                        JOptionPane.showMessageDialog(null, "Bateria"
-                                + " insuficiente,de vuelta a la base de"
-                                + " carga...");
-                        //sino sale todas las dependencias limpiadas y la 
-                        //batería restante
-                    } else {
-
-                        JOptionPane.showMessageDialog(null, "Metros limpiados "
-                                + "en total " + acumuladorMetros + "m,\nmetros"
-                                + " limpiados de cocina " + mCo + "m, salón "
-                                + mSa + "m, baño " + mBa + "m, dormitorio1 "
-                                + mDo1 + "m, dormitorio2 " + mDo2 + "m\nLa "
-                                + "bateria restante es de " + cargaEstablecida
-                                + "%");
-                    }
                     break;
                 case 3:
-
+                    
                 case 4:
                     cargaBateria();
                     break;
