@@ -17,6 +17,19 @@ import java.util.Date;
 public class RobotAspirador {
 
     static double cargaEstablecida;
+    static int confirmacion;
+    //Declaración del boolean para la función de salida del programa
+    static boolean repetirPrograma = true;
+    static int mCuadradosCasa;
+    static int mCocina;
+    static int mSalon;
+    static int mBanio;
+    static int mDom1;
+    static int mDom2;
+    static String[] posicion;
+    //Creamos objeto fecha con el constructor Date para poder
+    //mostrar feche luego con el JOptionPane con el resto de datos
+    static Date fecha = new Date();
 
     public static void main(String[] args) {
 
@@ -31,9 +44,6 @@ public class RobotAspirador {
         //y a la contraseña.
         final String NOMBRE_USUARIO = "Reduan";
         final String CONTRASENIA = "password";
-        //Declaración del boolean para la función de salida del programa
-        boolean repetirPrograma = true;
-
         //Introducción de las creedenciales que serán comparadas para ver si son
         //correctas y así visualizar el menú.
         JOptionPane.showMessageDialog(null, "\"Bienvenido al programa del robot "
@@ -65,15 +75,15 @@ public class RobotAspirador {
         //Creación de un bucle while para evitar así el la introducción
         //erronea de los m² de las dependencias por parte del usuario
         String mC = JOptionPane.showInputDialog(null, "m² Cocina");
-        int mCocina = Integer.parseInt(mC);
+        mCocina = Integer.parseInt(mC);
         String mS = JOptionPane.showInputDialog(null, "m² Salon");
-        int mSalon = Integer.parseInt(mS);
+        mSalon = Integer.parseInt(mS);
         String mB = JOptionPane.showInputDialog(null, "m² Baño");
-        int mBanio = Integer.parseInt(mB);
+        mBanio = Integer.parseInt(mB);
         String mD1 = JOptionPane.showInputDialog(null, "m² Dormitorio 1");
-        int mDom1 = Integer.parseInt(mD1);
+        mDom1 = Integer.parseInt(mD1);
         String mD2 = JOptionPane.showInputDialog(null, "m² Dormitorio 2");
-        int mDom2 = Integer.parseInt(mD2);
+        mDom2 = Integer.parseInt(mD2);
         while (mCocina < 0 || mCocina > 100 || mSalon < 0 || mSalon > 100
                 || mBanio < 0 || mBanio > 100 || mDom1 < 0 || mDom1 > 100
                 || mDom2 < 0 || mDom2 > 100) {
@@ -746,47 +756,14 @@ public class RobotAspirador {
                     }
                     break;
                 case 3:
-                    //Creamos objeto fecha con el constructor Date para poder
-                    //mostrar feche luego con el JOptionPane con el resto de datos
-                    Date fecha = new Date();
-                    //Los m² de la casa son la suma de todos
-                    int mCuadradosCasa = mCocina + mSalon + mBanio + mDom1 + mDom2;
-                    JOptionPane.showMessageDialog(null, fecha + "\n" + "Batería:"
-                            + cargaEstablecida + "%" + "\nPosición robot aspirador: "
-                            + posicion[4] + "\nDependencias y m² casa:\n"
-                            + "Cocina: " + mCocina + "m²\n"
-                            + "Salón: " + mSalon + "m²\n"
-                            + "Baño: " + mBanio + "m²\n"
-                            + "Dormitorio1: " + mDom1 + "m²\n"
-                            + "Dormitorio2: " + mDom2 + "m²\n"
-                            + "Y el total de m² de la casa son "
-                            + mCuadradosCasa + "m²");
+                    estadoGeneral();
                     break;
                 case 4:
                     cargaBateria();
                     break;
                 case 5:
-                    /*Al escribir 5 que corresponde a salir entramos aqui y nos
-                    pregunta que si estamos seguros de salir si le damos si este
-                    valor se guarda en un int y se compara con los JOption YES
-                    o con JOption NO y con el bucle if según la repsuesta, se 
-                    ejecuta de nuevo el programa o no*/
-                    int confirmacion = JOptionPane.showConfirmDialog(null, "Seguro"
-                            + " que quieres salir?", "SALIDA DEL PROGRAMA",
-                            JOptionPane.YES_NO_OPTION);
-
-                    if (confirmacion == JOptionPane.YES_OPTION) {
-
-                        repetirPrograma = false;
-                        JOptionPane.showMessageDialog(null, "Finalizando programa...");
-
-                    } else {
-
-                        repetirPrograma = true;
-                        JOptionPane.showMessageDialog(null, "Repitiendo programa...");
-
-                    }
-
+                    eleccionSalida();
+                    break;
             }
         }
 
@@ -812,6 +789,47 @@ public class RobotAspirador {
         JOptionPane.showMessageDialog(null, "Carga finalizada\n"
                 + "Estado batería " + cargaEstablecida + "%");
 
+    }
+
+    //Creación del método encargado de la elección de salida del programa
+    public static boolean eleccionSalida() {
+
+        /*Al escribir 5 que corresponde a salir entramos aqui y nos
+                    pregunta que si estamos seguros de salir si le damos si este
+                    valor se guarda en un int y se compara con los JOption YES
+                    o con JOption NO y con el bucle if según la repsuesta, se 
+                    ejecuta de nuevo el programa o no*/
+        confirmacion = JOptionPane.showConfirmDialog(null, "Seguro"
+                + " que quieres salir?", "SALIDA DEL PROGRAMA",
+                JOptionPane.YES_NO_OPTION);
+
+        if (confirmacion == JOptionPane.YES_OPTION) {
+
+            repetirPrograma = false;
+            JOptionPane.showMessageDialog(null, "Finalizando programa...");
+
+        } else {
+
+            repetirPrograma = true;
+            JOptionPane.showMessageDialog(null, "Repitiendo programa...");
+
+        }
+
+        return repetirPrograma;
+
+    }
+
+    public static void estadoGeneral() {
+
+        //Los m² de la casa son la suma de todos
+        mCuadradosCasa = mCocina + mSalon + mBanio + mDom1 + mDom2;
+        //JOptionPane.showMessageDialog(null, fecha);
+        JOptionPane.showMessageDialog(null, fecha + "\nEstado batería: "
+                + cargaEstablecida + "%" + "\nCocina: " + mCocina + "m²"
+                + "\nSalón: " + mSalon + "m²" + "\nBaño: " + mBanio + "m²"
+                + "\nDormitorio1: " + mDom1 + "m²" + "\nDormitorio2: "
+                + mDom2 + "m²" + "\nTotal casa: " + mCuadradosCasa + "m²");
+        //JOptionPane.showMessageDialog(null, "Estado batería: " + cargaEstablecida);
     }
 
 }
