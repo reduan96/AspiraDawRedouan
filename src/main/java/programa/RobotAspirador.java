@@ -7,6 +7,8 @@ package programa;
 
 //Importamos el JOption para la lectura y muestra de los datos del programa.
 import javax.swing.JOptionPane;
+//Importamos el date para mostrar fecha en el estado general
+import java.util.Date;
 
 /**
  *
@@ -744,7 +746,22 @@ public class RobotAspirador {
                     }
                     break;
                 case 3:
-                    
+                    //Creamos objeto fecha con el constructor Date para poder
+                    //mostrar feche luego con el JOptionPane con el resto de datos
+                    Date fecha = new Date();
+                    //Los m² de la casa son la suma de todos
+                    int mCuadradosCasa = mCocina + mSalon + mBanio + mDom1 + mDom2;
+                    JOptionPane.showMessageDialog(null, fecha + "\n" + "Batería:"
+                            + cargaEstablecida + "%" + "\nPosición robot aspirador: "
+                            + posicion[4] + "\nDependencias y m² casa:\n"
+                            + "Cocina: " + mCocina + "m²\n"
+                            + "Salón: " + mSalon + "m²\n"
+                            + "Baño: " + mBanio + "m²\n"
+                            + "Dormitorio1: " + mDom1 + "m²\n"
+                            + "Dormitorio2: " + mDom2 + "m²\n"
+                            + "Y el total de m² de la casa son "
+                            + mCuadradosCasa + "m²");
+                    break;
                 case 4:
                     cargaBateria();
                     break;
