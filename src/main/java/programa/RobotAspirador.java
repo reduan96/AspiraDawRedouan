@@ -119,6 +119,13 @@ public class RobotAspirador {
             } while (opcion < 1 || opcion > 5);
 
             //Estructura switch que determina la elección tomada 
+            //Establecemos las variables donde se guardaran los 
+            //metros recorridos de cada dependencia
+            int mCo = 0;
+            int mSa = 0;
+            int mBa = 0;
+            int mDo1 = 0;
+            int mDo2 = 0;
             switch (opcion) {
                 case 1:
                     int opAspiracion;
@@ -131,14 +138,7 @@ public class RobotAspirador {
                         opAspiracion = Integer.parseInt(opAsp);
                     } while (opAspiracion < 1 || opAspiracion > 2);
                     //Establecemos la varibale de gasto de bateria * m² de dependencia
-                    final double GASTO_BATERIA_M = 1.5;
-                    //Establecemos las variables donde se guardaran los 
-                    //metros recorridos de cada dependencia
-                    int mCo = 0;
-                    int mSa = 0;
-                    int mBa = 0;
-                    int mDo1 = 0;
-                    int mDo2 = 0;
+                    final double GASTO_BAT_ASP = 1.5;
                     //Estructura switch para el selección de modo de aspiración
                     switch (opAspiracion) {
 
@@ -150,7 +150,7 @@ public class RobotAspirador {
                             //batería por cada metro recorrido de cada dependencia
                             while (cargaEstablecida > 4 && mCocina > mCo) {
 
-                                cargaEstablecida -= GASTO_BATERIA_M;
+                                cargaEstablecida -= GASTO_BAT_ASP;
                                 mCo++;
                             }
                             JOptionPane.showMessageDialog(null, "Batería restante "
@@ -162,13 +162,13 @@ public class RobotAspirador {
                             if (mCo != mCocina) {
 
                                 JOptionPane.showMessageDialog(null, "No se ha"
-                                        + " terminado de limpiar la cocina");
+                                        + " terminado de aspirar la cocina");
 
                             }
                             //comentario 1.
                             while (cargaEstablecida > 4 && mSalon > mSa) {
 
-                                cargaEstablecida -= GASTO_BATERIA_M;
+                                cargaEstablecida -= GASTO_BAT_ASP;
                                 mSa++;
                             }
                             JOptionPane.showMessageDialog(null, "Batería restante "
@@ -177,13 +177,13 @@ public class RobotAspirador {
                             if (mSa != mSalon) {
 
                                 JOptionPane.showMessageDialog(null, "No se ha"
-                                        + " terminado de limpiar el salón");
+                                        + " terminado de aspirar el salón");
 
                             }
                             //comentario 1.
                             while (cargaEstablecida > 4 && mBanio > mBa) {
 
-                                cargaEstablecida -= GASTO_BATERIA_M;
+                                cargaEstablecida -= GASTO_BAT_ASP;
                                 mBa++;
                             }
                             JOptionPane.showMessageDialog(null, "Batería restante "
@@ -192,13 +192,13 @@ public class RobotAspirador {
                             if (mBa != mBanio) {
 
                                 JOptionPane.showMessageDialog(null, "No se ha"
-                                        + " terminado de limpiar el baño");
+                                        + " terminado de aspirar el baño");
 
                             }
                             //comentario 1.
                             while (cargaEstablecida > 4 && mDom1 > mDo1) {
 
-                                cargaEstablecida -= GASTO_BATERIA_M;
+                                cargaEstablecida -= GASTO_BAT_ASP;
                                 mDo1++;
                             }
                             JOptionPane.showMessageDialog(null, "Batería restante "
@@ -207,13 +207,13 @@ public class RobotAspirador {
                             if (mDo1 != mDom1) {
 
                                 JOptionPane.showMessageDialog(null, "No se ha"
-                                        + " terminado de limpiar el dormitorio 1");
+                                        + " terminado de aspirar el dormitorio 1");
 
                             }
                             //comentario 1.
                             while (cargaEstablecida > 4 && mDom2 > mDo2) {
 
-                                cargaEstablecida -= GASTO_BATERIA_M;
+                                cargaEstablecida -= GASTO_BAT_ASP;
                                 mDo2++;
                             }
                             JOptionPane.showMessageDialog(null, "Batería restante "
@@ -222,7 +222,7 @@ public class RobotAspirador {
                             if (mDo2 != mDom2) {
 
                                 JOptionPane.showMessageDialog(null, "No se ha"
-                                        + " terminado de limpiar el dormitorio 2");
+                                        + " terminado de aspirar el dormitorio 2");
 
                             }
                             //Sumamos todos los metros recorridos
@@ -251,8 +251,7 @@ public class RobotAspirador {
                                         + "bateria restante es de " + cargaEstablecida
                                         + "%");
                             }
-                            repetirPrograma = false;
-                            continue;
+                            break;
                         case 2:
                             //Declaración de la variable opción dependencias a limpiar
                             int opDep;
@@ -277,35 +276,35 @@ public class RobotAspirador {
                                     case 1:
                                         while (cargaEstablecida > 4 && mCocina > mCo) {
 
-                                            cargaEstablecida -= GASTO_BATERIA_M;
+                                            cargaEstablecida -= GASTO_BAT_ASP;
                                             mCo++;
                                         }
                                         break;
                                     case 2:
                                         while (cargaEstablecida > 4 && mSalon > mSa) {
 
-                                            cargaEstablecida -= GASTO_BATERIA_M;
+                                            cargaEstablecida -= GASTO_BAT_ASP;
                                             mSa++;
                                         }
                                         break;
                                     case 3:
                                         while (cargaEstablecida > 4 && mBanio > mBa) {
 
-                                            cargaEstablecida -= GASTO_BATERIA_M;
+                                            cargaEstablecida -= GASTO_BAT_ASP;
                                             mBa++;
                                         }
                                         break;
                                     case 4:
                                         while (cargaEstablecida > 4 && mDom1 > mDo1) {
 
-                                            cargaEstablecida -= GASTO_BATERIA_M;
+                                            cargaEstablecida -= GASTO_BAT_ASP;
                                             mDo1++;
                                         }
                                         break;
                                     case 5:
                                         while (cargaEstablecida > 4 && mDom2 > mDo2) {
 
-                                            cargaEstablecida -= GASTO_BATERIA_M;
+                                            cargaEstablecida -= GASTO_BAT_ASP;
                                             mDo2++;
                                         }
                                         break;
@@ -318,10 +317,10 @@ public class RobotAspirador {
                                         if (mCo != mCocina) {
 
                                             JOptionPane.showMessageDialog(null, "No se ha"
-                                                    + " terminado de limpiar la cocina");
+                                                    + " terminado de aspirar la cocina");
 
                                         } else {
-                                            JOptionPane.showMessageDialog(null, "Se ha limpiado"
+                                            JOptionPane.showMessageDialog(null, "Se ha aspirado"
                                                     + " la cocina que tiene " + mCo + " m");
                                         }
                                         break;
@@ -329,10 +328,10 @@ public class RobotAspirador {
                                         if (mSa != mSalon) {
 
                                             JOptionPane.showMessageDialog(null, "No se ha"
-                                                    + " terminado de limpiar el salón");
+                                                    + " terminado de aspirar el salón");
 
                                         } else {
-                                            JOptionPane.showMessageDialog(null, "Se ha limpiado"
+                                            JOptionPane.showMessageDialog(null, "Se ha aspirado"
                                                     + " el salón que tiene " + mSa + " m");
                                         }
                                         break;
@@ -340,10 +339,10 @@ public class RobotAspirador {
                                         if (mBa != mBanio) {
 
                                             JOptionPane.showMessageDialog(null, "No se ha"
-                                                    + " terminado de limpiar el baño");
+                                                    + " terminado de aspirar el baño");
 
                                         } else {
-                                            JOptionPane.showMessageDialog(null, "Se ha limpiado"
+                                            JOptionPane.showMessageDialog(null, "Se ha aspirado"
                                                     + " el baño que tiene " + mBa + " m");
                                         }
                                         break;
@@ -351,10 +350,10 @@ public class RobotAspirador {
                                         if (mDo1 != mDom1) {
 
                                             JOptionPane.showMessageDialog(null, "No se ha"
-                                                    + " terminado de limpiar el dormitorio 1");
+                                                    + " terminado de aspirar el dormitorio 1");
 
                                         } else {
-                                            JOptionPane.showMessageDialog(null, "Se ha limpiado"
+                                            JOptionPane.showMessageDialog(null, "Se ha aspirado"
                                                     + " el dormitorio1 que tiene " + mDo1 + " m");
                                         }
                                         break;
@@ -362,10 +361,10 @@ public class RobotAspirador {
                                         if (mDo2 != mDom2) {
 
                                             JOptionPane.showMessageDialog(null, "No se ha"
-                                                    + " terminado de limpiar el dormitorio 2");
+                                                    + " terminado de aspirar el dormitorio 2");
 
                                         } else {
-                                            JOptionPane.showMessageDialog(null, "Se ha limpiado"
+                                            JOptionPane.showMessageDialog(null, "Se ha aspirado"
                                                     + " el dormitorio2 que tiene " + mDo2 + " m");
                                         }
                                         break;
@@ -377,10 +376,134 @@ public class RobotAspirador {
                             JOptionPane.showMessageDialog(null, "Batería "
                                     + "insuficiente.\nVolviendo a la base de carga...");
                     }
-                    repetirPrograma = false;
-                    continue;
+                    break;
                 case 2:
+                    //Establecemos la varibale de gasto de bateria * m² de dependencia
+                    final double GASTO_BAT_ASP_FREG = 2.25;
+                    //Declaramos la variable que acumulará la cantidad
+                    //de metros limpiados en total
+                    int acumuladorMetros = 0;
+                    //1.Establecemos el algoritmo que restará el 2.25% de
+                    //batería por cada metro recorrido de cada dependencia
+                    while (cargaEstablecida > 4 && mCocina > mCo) {
 
+                        cargaEstablecida -= GASTO_BAT_ASP_FREG;
+                        mCo++;
+                    }
+                    //2.Preguntamos si los metros recorridos son diferentes
+                    //a los metros de la dependencia para asegurarnos de
+                    //que si no la ha recorrido entera, que lo comunique
+                    //el programa.
+                    if (mCo != mCocina) {
+
+                        JOptionPane.showMessageDialog(null, "No se ha"
+                                + " terminado de aspirar y fregar la cocina");
+
+                    } else {
+
+                        JOptionPane.showMessageDialog(null, "Se ha aspirado y fregado "
+                                + "la cocina.\nBatería restante " + cargaEstablecida + "%");
+
+                    }
+                    //comentario 1.
+                    while (cargaEstablecida > 4 && mSalon > mSa) {
+
+                        cargaEstablecida -= GASTO_BAT_ASP_FREG;
+                        mSa++;
+                    }
+                    //comentario 2.
+                    if (mSa != mSalon) {
+
+                        JOptionPane.showMessageDialog(null, "No se ha"
+                                + " terminado de aspirar y fregar el salón");
+
+                    } else {
+
+                        JOptionPane.showMessageDialog(null, "Se ha aspirado y fregado "
+                                + "el salón.\nBatería restante " + cargaEstablecida + "%");
+
+                    }
+                    //comentario 1.
+                    while (cargaEstablecida > 4 && mBanio > mBa) {
+
+                        cargaEstablecida -= GASTO_BAT_ASP_FREG;
+                        mBa++;
+                    }
+                    //comentario 2.
+                    if (mBa != mBanio) {
+
+                        JOptionPane.showMessageDialog(null, "No se ha"
+                                + " terminado de aspirar y fregar el baño");
+
+                    } else {
+
+                        JOptionPane.showMessageDialog(null, "Se ha aspirado y fregado "
+                                + "el baño.\nBatería restante " + cargaEstablecida + "%");
+
+                    }
+                    //comentario 1.
+                    while (cargaEstablecida > 4 && mDom1 > mDo1) {
+
+                        cargaEstablecida -= GASTO_BAT_ASP_FREG;
+                        mDo1++;
+                    }
+                    //comentario 2.
+                    if (mDo1 != mDom1) {
+
+                        JOptionPane.showMessageDialog(null, "No se ha"
+                                + " terminado de aspirar y fregar el dormitorio1");
+
+                    } else {
+
+                        JOptionPane.showMessageDialog(null, "Se ha aspirado y fregado "
+                                + "el dormitorio1.\nBatería restante " + cargaEstablecida + "%");
+
+                    }
+                    //comentario 1.
+                    while (cargaEstablecida > 4 && mDom2 > mDo2) {
+
+                        cargaEstablecida -= GASTO_BAT_ASP_FREG;
+                        mDo2++;
+                    }
+                    //comentario 2.
+                    if (mDo2 != mDom2) {
+
+                        JOptionPane.showMessageDialog(null, "No se ha"
+                                + " terminado de aspirar y fregar el dormitorio 2");
+
+                    } else {
+
+                        JOptionPane.showMessageDialog(null, "Se ha aspirado y fregado "
+                                + "el dormitorio2.\nBatería restante " + cargaEstablecida + "%");
+
+                    }
+                    //Sumamos todos los metros recorridos
+                    acumuladorMetros = mCo + mSa + mBa + mDo1 + mDo2;
+                    //entra al if si se ha salido de las dependencias para
+                    //volver a la base de carga con su 3% batería
+                    if (cargaEstablecida == 4) {
+
+                        JOptionPane.showMessageDialog(null, "Metros limpiados"
+                                + " en total " + acumuladorMetros + "m,\nmetros"
+                                + " limpiados de cocina " + mCo + "m, salón "
+                                + mSa + "m, baño " + mBa + "m, dormitorio1 "
+                                + mDo1 + "m, dormitorio2 " + mDo2 + "m");
+                        JOptionPane.showMessageDialog(null, "Bateria"
+                                + " insuficiente,de vuelta a la base de"
+                                + " carga...");
+                        //sino sale todas las dependencias limpiadas y la 
+                        //batería restante
+                    } else {
+
+                        JOptionPane.showMessageDialog(null, "Metros limpiados "
+                                + "en total " + acumuladorMetros + "m,\nmetros"
+                                + " limpiados de cocina " + mCo + "m, salón "
+                                + mSa + "m, baño " + mBa + "m, dormitorio1 "
+                                + mDo1 + "m, dormitorio2 " + mDo2 + "m\nLa "
+                                + "bateria restante es de " + cargaEstablecida
+                                + "%");
+                    }
+                    break;
                 case 3:
 
                 case 4:
