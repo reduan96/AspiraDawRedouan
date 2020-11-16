@@ -26,10 +26,12 @@ public class RobotAspirador {
     static int mBanio;
     static int mDom1;
     static int mDom2;
-    static String posicionRobot;
     //Declaramos la variable String que guardará la posición del
     //robot en el domicilio
-    static String[] posicion;
+    static String posicionRobot;
+    //Le damos variables a las posiciones de memoria del array posicion
+    static String[] posicion = {"Cocina", "Salón", "Baño", "Dormitorio1",
+        "Dormitorio2", "Base de carga"};
     //Creamos objeto fecha con el constructor Date para poder
     //mostrar feche luego con el JOptionPane con el resto de datos
     static Date fecha = new Date();
@@ -134,7 +136,6 @@ public class RobotAspirador {
                 //el string en un int
             } while (opcion < 1 || opcion > 5);
 
-            //Estructura switch que determina la elección tomada 
             //Establecemos las variables donde se guardaran los 
             //metros recorridos de cada dependencia
             int mCo = 0;
@@ -143,8 +144,7 @@ public class RobotAspirador {
             int mDo1 = 0;
             int mDo2 = 0;
 
-            String[] posicion = {"Cocina", "Salón", "Baño", "Dormitorio1",
-                "Dormitorio2", "Base de carga"};
+            //Estructura switch que determina la elección tomada 
             switch (opcion) {
                 case 1:
                     //Variable donde se guardará la elección del submenú de
