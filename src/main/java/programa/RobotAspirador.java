@@ -26,6 +26,9 @@ public class RobotAspirador {
     static int mBanio;
     static int mDom1;
     static int mDom2;
+    static String posicionRobot;
+    //Declaramos la variable String que guardará la posición del
+    //robot en el domicilio
     static String[] posicion;
     //Creamos objeto fecha con el constructor Date para poder
     //mostrar feche luego con el JOptionPane con el resto de datos
@@ -139,8 +142,7 @@ public class RobotAspirador {
             int mBa = 0;
             int mDo1 = 0;
             int mDo2 = 0;
-            //Declaramos la variable String que guardará la posición del
-            //robot en el domicilio
+
             String[] posicion = {"Cocina", "Salón", "Baño", "Dormitorio1",
                 "Dormitorio2", "Base de carga"};
             switch (opcion) {
@@ -181,6 +183,7 @@ public class RobotAspirador {
                                 JOptionPane.showMessageDialog(null, "No se ha"
                                         + " terminado de aspirar la cocina\n"
                                         + "Posición: " + posicion[0]);
+                                posicionRobot = posicion[0];
                                 //Sumamos todos los metros recorridos
                                 acumuladorMetros = mCo + mSa + mBa + mDo1 + mDo2;
                                 //entra al if si se ha salido de las dependencias para
@@ -225,6 +228,7 @@ public class RobotAspirador {
                                 JOptionPane.showMessageDialog(null, "No se ha"
                                         + " terminado de aspirar el salón\n"
                                         + "Posición: " + posicion[1]);
+                                posicionRobot = posicion[1];
                                 //Sumamos todos los metros recorridos
                                 acumuladorMetros = mCo + mSa + mBa + mDo1 + mDo2;
                                 //entra al if si se ha salido de las dependencias para
@@ -269,6 +273,7 @@ public class RobotAspirador {
                                 JOptionPane.showMessageDialog(null, "No se ha"
                                         + " terminado de aspirar el baño\n"
                                         + "Posición: " + posicion[2]);
+                                posicionRobot = posicion[2];
                                 //Sumamos todos los metros recorridos
                                 acumuladorMetros = mCo + mSa + mBa + mDo1 + mDo2;
                                 //entra al if si se ha salido de las dependencias para
@@ -313,6 +318,7 @@ public class RobotAspirador {
                                 JOptionPane.showMessageDialog(null, "No se ha"
                                         + " terminado de aspirar el dormitorio 1\n"
                                         + "Posición: " + posicion[3]);
+                                posicionRobot = posicion[3];
                                 //Sumamos todos los metros recorridos
                                 acumuladorMetros = mCo + mSa + mBa + mDo1 + mDo2;
                                 //entra al if si se ha salido de las dependencias para
@@ -357,6 +363,7 @@ public class RobotAspirador {
                                 JOptionPane.showMessageDialog(null, "No se ha"
                                         + " terminado de aspirar el dormitorio 2\n"
                                         + "Posición: " + posicion[4]);
+                                posicionRobot = posicion[4];
                                 //Sumamos todos los metros recorridos
                                 acumuladorMetros = mCo + mSa + mBa + mDo1 + mDo2;
                                 //entra al if si se ha salido de las dependencias para
@@ -461,9 +468,11 @@ public class RobotAspirador {
                                             JOptionPane.showMessageDialog(null, "No se ha"
                                                     + " terminado de aspirar la cocina\n"
                                                     + "Posición: " + posicion[0]);
+                                            posicionRobot = posicion[0];
                                             JOptionPane.showMessageDialog(null, "Batería "
                                                     + "insuficiente.\nVolviendo a la base de carga..."
                                                     + "Posición: " + posicion[5]);
+                                            posicionRobot = posicion[5];
 
                                         }
                                         if (cargaEstablecida != 4) {
@@ -477,9 +486,11 @@ public class RobotAspirador {
                                             JOptionPane.showMessageDialog(null, "No se ha"
                                                     + " terminado de aspirar el salón\n"
                                                     + "Posición: " + posicion[1]);
+                                            posicionRobot = posicion[1];
                                             JOptionPane.showMessageDialog(null, "Batería "
                                                     + "insuficiente.\nVolviendo a la base de carga..."
                                                     + "Posición: " + posicion[5]);
+                                            posicionRobot = posicion[5];
 
                                         }
                                         if (cargaEstablecida != 4) {
@@ -493,9 +504,11 @@ public class RobotAspirador {
                                             JOptionPane.showMessageDialog(null, "No se ha"
                                                     + " terminado de aspirar el baño\n"
                                                     + "Posición: " + posicion[2]);
+                                            posicionRobot = posicion[2];
                                             JOptionPane.showMessageDialog(null, "Batería "
                                                     + "insuficiente.\nVolviendo a la base de carga..."
                                                     + "Posición: " + posicion[5]);
+                                            posicionRobot = posicion[5];
 
                                         }
                                         if (cargaEstablecida != 4) {
@@ -509,9 +522,11 @@ public class RobotAspirador {
                                             JOptionPane.showMessageDialog(null, "No se ha"
                                                     + " terminado de aspirar el dormitorio 1\n"
                                                     + "Posición: " + posicion[3]);
+                                            posicionRobot = posicion[3];
                                             JOptionPane.showMessageDialog(null, "Batería "
                                                     + "insuficiente.\nVolviendo a la base de carga..."
                                                     + "Posición: " + posicion[5]);
+                                            posicionRobot = posicion[5];
 
                                         }
                                         if (cargaEstablecida != 4) {
@@ -525,9 +540,11 @@ public class RobotAspirador {
                                             JOptionPane.showMessageDialog(null, "No se ha"
                                                     + " terminado de aspirar el dormitorio 2\n"
                                                     + "Posición: " + posicion[4]);
+                                            posicionRobot = posicion[4];
                                             JOptionPane.showMessageDialog(null, "Batería "
                                                     + "insuficiente.\nVolviendo a la base de carga..."
                                                     + "Posición: " + posicion[5]);
+                                            posicionRobot = posicion[5];
                                         }
                                         if (cargaEstablecida != 4) {
                                             JOptionPane.showMessageDialog(null, "Se ha aspirado"
@@ -757,6 +774,7 @@ public class RobotAspirador {
                     break;
                 case 4:
                     cargaBateria();
+                    posicionRobot = posicion[5];
                     break;
                 case 5:
                     eleccionSalida();
@@ -764,6 +782,19 @@ public class RobotAspirador {
             }
         }
 
+    }
+
+    //Creación del método encargado de la elección estado general del programa
+    public static void estadoGeneral() {
+
+        //Los m² de la casa son la suma de todos
+        mCuadradosCasa = mCocina + mSalon + mBanio + mDom1 + mDom2;
+
+        JOptionPane.showMessageDialog(null, fecha + "\nEstado batería: "
+                + cargaEstablecida + "%" + "\nPosición robot: " + posicionRobot
+                + "\nCocina: " + mCocina + "m²\nSalón: " + mSalon + "m²" + "\nBaño: "
+                + mBanio + "m²\nDormitorio1: " + mDom1 + "m²" + "\nDormitorio2: "
+                + mDom2 + "m²" + "\nTotal casa: " + mCuadradosCasa + "m²");
     }
 
     //Creación del método encargado de la carga de la batería
@@ -785,7 +816,7 @@ public class RobotAspirador {
 
         }
         JOptionPane.showMessageDialog(null, "Carga finalizada!\n"
-                +cargaEstablecida + "%");
+                + cargaEstablecida + "%");
 
     }
 
@@ -815,19 +846,6 @@ public class RobotAspirador {
 
         return repetirPrograma;
 
-    }
-
-    //Creación del método encargado de la elección estado general del programa
-    public static void estadoGeneral() {
-
-        //Los m² de la casa son la suma de todos
-        mCuadradosCasa = mCocina + mSalon + mBanio + mDom1 + mDom2;
-
-        JOptionPane.showMessageDialog(null, fecha + "\nEstado batería: "
-                + cargaEstablecida + "%" + "\nCocina: " + mCocina + "m²"
-                + "\nSalón: " + mSalon + "m²" + "\nBaño: " + mBanio + "m²"
-                + "\nDormitorio1: " + mDom1 + "m²" + "\nDormitorio2: "
-                + mDom2 + "m²" + "\nTotal casa: " + mCuadradosCasa + "m²");
     }
 
 }
