@@ -408,7 +408,7 @@ public class RobotAspirador {
                                     String op = JOptionPane.showInputDialog(null, "Introduce"
                                             + " la dependencia deseada\n1.Cocina\n2.Salón"
                                             + "\n3.Baño\n4.Dormitorio1\n5.Dormitorio2\n"
-                                            + "6.Atrás");
+                                            + "6.MENÚ");
                                     opDep = Integer.parseInt(op);
 
                                 } while (opDep < 1 || opDep > 7);
@@ -539,9 +539,6 @@ public class RobotAspirador {
                                         break;
                                 }
                             }
-                            //Llamamos al método de carga para que se cargue la batería
-                            //antes de salir del submenú.
-                            cargaBateria();
                     }
                     break;
                 case 2:
@@ -773,21 +770,22 @@ public class RobotAspirador {
     //MODULARIZAR
     public static void cargaBateria() {
 
-        //Instaciamos la variable i para el bucle for
-        double i;
-        //Realizamos el bucle for con el algoritmo para cargar la bateria
-        for (i = 0; i < 100; i++) {
+        double estActualBat = cargaEstablecida;
 
-            System.out.println("Cargando batería..." + i);
-            //Bucle if para que la carga no se pase del 100%
-            if (cargaEstablecida < 100) {
+        for (int i = 0; i < (100 - estActualBat); i++) {
 
-                i++;
+            if (cargaEstablecida % 2 != 0) {
+
+                cargaEstablecida = Math.floor(cargaEstablecida);
+
             }
+
+            cargaEstablecida++;
+            System.out.println("Cargando bateria " + cargaEstablecida + "...");
+
         }
-        cargaEstablecida = i;
-        JOptionPane.showMessageDialog(null, "Carga finalizada\n"
-                + "Estado batería " + cargaEstablecida + "%");
+        JOptionPane.showMessageDialog(null, "Carga finalizada!\n"
+                +cargaEstablecida + "%");
 
     }
 
@@ -824,7 +822,7 @@ public class RobotAspirador {
 
         //Los m² de la casa son la suma de todos
         mCuadradosCasa = mCocina + mSalon + mBanio + mDom1 + mDom2;
-        
+
         JOptionPane.showMessageDialog(null, fecha + "\nEstado batería: "
                 + cargaEstablecida + "%" + "\nCocina: " + mCocina + "m²"
                 + "\nSalón: " + mSalon + "m²" + "\nBaño: " + mBanio + "m²"
