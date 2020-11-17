@@ -110,9 +110,9 @@ public class RobotAspirador {
             do {
                 String op = JOptionPane.showInputDialog(null, "MENU\n 1.ASPIRACIÓN\n"
                         + " 2.ASPIRACIÓN Y FREGADO\n 3.ESTADO GENERAL\n "
-                        + "4.BASE DE CARGA\n 5.SALIR");
+                        + "4.BASE DE CARGA\n 5.SALIR\n 6.CARGA BATERÍA MANUAL(prueba)");
                 opcion = Integer.parseInt(op);
-            } while (opcion < 1 || opcion > 5);
+            } while (opcion < 1 || opcion > 6);
             //Variable donde se guardarán los m² recorridos de cada dependencia
             int mCo = 0;
             int mSa = 0;
@@ -860,6 +860,9 @@ public class RobotAspirador {
                 case 5:
                     eleccionSalida();
                     break;
+                case 6:
+                    cargaBateriaManual();
+                    break;
             }
         }
 
@@ -906,5 +909,23 @@ public class RobotAspirador {
             JOptionPane.showMessageDialog(null, "Repitiendo programa...");
         }
         return repetirPrograma;
+    }
+
+    //Creación del método encargado de la carga de la batería manualmente
+    //SOLO PARA QUE HAGA EL PROFESOR PRUEBAS AL PROGRAMA
+    public static void cargaBateriaManual() {
+
+        //JOption para establecer la batería de manera manual
+        String C = JOptionPane.showInputDialog(null, "Indica el nivel "
+                + "de carga del robot aspirador\n 0% --- 100%");
+        cargaEstablecida = Double.parseDouble(C);
+        //Bucle while que comprueba el valor metido a la bateria para que este en el rango
+        while (cargaEstablecida < 0 || cargaEstablecida > 100) {
+            C = JOptionPane.showInputDialog(null, "Indica de nuevo el nivel "
+                    + "de carga del robot aspirador\n 0% --- 100%",
+                    "Error!", JOptionPane.ERROR_MESSAGE);
+            cargaEstablecida = Double.parseDouble(C);
+        }
+
     }
 }
