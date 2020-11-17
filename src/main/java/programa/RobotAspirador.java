@@ -55,7 +55,6 @@ public class RobotAspirador {
                 + "aspirador\nA continuación introduzca sus datos de acceso");
         String nomUs = JOptionPane.showInputDialog(null, "Usuario");
         String pass = JOptionPane.showInputDialog(null, "Contraseña");
-
         //Realizamos un bucle while que compruebe las credenciales,si son erroneas
         //el bucle dará true y entrará al bucle hasta que pongas las credenciales
         //correctas y dará false en la condicion y se saldrá
@@ -67,16 +66,13 @@ public class RobotAspirador {
                     + "contraseña", "Error!", JOptionPane.ERROR_MESSAGE);
 
         }
-
         //Realización del bucle principal que mostrará el menu hasta que elijamos
         //finalizar el programa
         JOptionPane.showMessageDialog(null, "Credenciales correctas\n"
                 + "Bienvenido al Aspirador Robot\nConfigurando el sistema...");
-
         //Primero Configuramos el sistema antes de mostrar el menu
         JOptionPane.showMessageDialog(null, "Introduzca el número de metros"
                 + " de las dependencias(1m²--100m²)");
-
         //Creación de un bucle while para evitar así el la introducción
         //erronea de los m² de las dependencias por parte del usuario
         String mC = JOptionPane.showInputDialog(null, "m² Cocina");
@@ -109,7 +105,6 @@ public class RobotAspirador {
             mDom2 = Integer.parseInt(mD2);
 
         }
-
         //Establecemos el nivel de carga del robot, tiene que estar entre el 
         //0% y 100% e instanciamos nivelCarga para guardar la variable y 
         //establecemos un bucle while para filtrar posibles errores.
@@ -125,7 +120,9 @@ public class RobotAspirador {
             cargaEstablecida = Double.parseDouble(C);
 
         }
-
+        //La posición predeterminada del robot al iniciar el menú
+        posicionRobot = posicion[5];
+        //Bucle while que repite el menú mientras no se elija salir del mismo.
         int opcion;
         while (repetirPrograma) {
             do {
@@ -135,7 +132,6 @@ public class RobotAspirador {
                 opcion = Integer.parseInt(op); //Hacemos el parse para convertir
                 //el string en un int
             } while (opcion < 1 || opcion > 5);
-
             //Establecemos las variables donde se guardaran los 
             //metros recorridos de cada dependencia
             int mCo = 0;
@@ -143,7 +139,6 @@ public class RobotAspirador {
             int mBa = 0;
             int mDo1 = 0;
             int mDo2 = 0;
-
             //Estructura switch que determina la elección tomada 
             switch (opcion) {
                 case 1:
