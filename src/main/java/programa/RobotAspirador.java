@@ -327,6 +327,8 @@ public class RobotAspirador {
                                         + " el dormitorio2 que tiene " + mDo2 + " m\n"
                                         + "Batería restante " + cargaEstablecida + "%");
                             }
+                            JOptionPane.showMessageDialog(null, "Se han terminado de limpiar "
+                                    + "todas las dependencias.Volviendo a la base de carga...");
                             posicionRobot = posicion[5];
                             break;
                         case 2:
@@ -393,6 +395,7 @@ public class RobotAspirador {
                                                         + "Posición: " + posicion[5]);
                                                 posicionRobot = posicion[5];
                                             }
+                                            continue;
                                         }
                                         posicionRobot = posicion[5];
                                         if (cargaEstablecida != MIN_BAT) {
@@ -414,6 +417,7 @@ public class RobotAspirador {
                                                         + "Posición: " + posicion[5]);
                                                 posicionRobot = posicion[5];
                                             }
+                                            continue;
                                         }
                                         posicionRobot = posicion[5];
                                         if (cargaEstablecida != MIN_BAT) {
@@ -435,6 +439,7 @@ public class RobotAspirador {
                                                         + "Posición: " + posicion[5]);
                                                 posicionRobot = posicion[5];
                                             }
+                                            continue;
                                         }
                                         posicionRobot = posicion[5];
                                         if (cargaEstablecida != MIN_BAT) {
@@ -456,6 +461,7 @@ public class RobotAspirador {
                                                         + "Posición: " + posicion[5]);
                                                 posicionRobot = posicion[5];
                                             }
+                                            continue;
                                         }
                                         posicionRobot = posicion[5];
                                         if (cargaEstablecida != MIN_BAT) {
@@ -477,6 +483,7 @@ public class RobotAspirador {
                                                         + "Posición: " + posicion[5]);
                                                 posicionRobot = posicion[5];
                                             }
+                                            continue;
                                         }
                                         posicionRobot = posicion[5];
                                         if (cargaEstablecida != MIN_BAT) {
@@ -685,6 +692,8 @@ public class RobotAspirador {
                                 JOptionPane.showMessageDialog(null, "Se ha aspirado y fregado "
                                         + "el dormitorio2.\nBatería restante " + cargaEstablecida + "%");
                             }
+                            JOptionPane.showMessageDialog(null, "Se han terminado de limpiar "
+                                    + "todas las dependencias.Volviendo a la base de carga...");
                             posicionRobot = posicion[5];
                             break;
                         case 2:
@@ -750,6 +759,7 @@ public class RobotAspirador {
                                                         + "Posición: " + posicion[5]);
                                                 posicionRobot = posicion[5];
                                             }
+                                            continue;
                                         }
                                         posicionRobot = posicion[5];
                                         if (cargaEstablecida != MIN_BAT_2) {
@@ -771,6 +781,7 @@ public class RobotAspirador {
                                                         + "Posición: " + posicion[5]);
                                                 posicionRobot = posicion[5];
                                             }
+                                            continue;
                                         }
                                         posicionRobot = posicion[5];
                                         if (cargaEstablecida != MIN_BAT_2) {
@@ -792,6 +803,7 @@ public class RobotAspirador {
                                                         + "Posición: " + posicion[5]);
                                                 posicionRobot = posicion[5];
                                             }
+                                            continue;
                                         }
                                         posicionRobot = posicion[5];
                                         if (cargaEstablecida != MIN_BAT_2) {
@@ -813,6 +825,7 @@ public class RobotAspirador {
                                                         + "Posición: " + posicion[5]);
                                                 posicionRobot = posicion[5];
                                             }
+                                            continue;
                                         }
                                         posicionRobot = posicion[5];
                                         if (cargaEstablecida != MIN_BAT_2) {
@@ -834,6 +847,7 @@ public class RobotAspirador {
                                                         + "Posición: " + posicion[5]);
                                                 posicionRobot = posicion[5];
                                             }
+                                            continue;
                                         }
                                         posicionRobot = posicion[5];
                                         if (cargaEstablecida != MIN_BAT_2) {
