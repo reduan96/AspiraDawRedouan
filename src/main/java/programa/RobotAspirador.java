@@ -70,9 +70,9 @@ public class RobotAspirador {
         String mD2 = JOptionPane.showInputDialog(null, "m² Dormitorio 2");
         mDom2 = Integer.parseInt(mD2);
         //Bucle while para comprobar si los m² de las dependencias están en el rango
-        while (mCocina < 0 || mCocina > 100 || mSalon < 0 || mSalon > 100
-                || mBanio < 0 || mBanio > 100 || mDom1 < 0 || mDom1 > 100
-                || mDom2 < 0 || mDom2 > 100) {
+        while (mCocina < 1 || mCocina > 100 || mSalon < 1 || mSalon > 100
+                || mBanio < 1 || mBanio > 100 || mDom1 < 1 || mDom1 > 100
+                || mDom2 < 1 || mDom2 > 100) {
             mC = JOptionPane.showInputDialog(null, "Introduzca de nuevo "
                     + "m² Cocina", "Error!", JOptionPane.ERROR_MESSAGE);
             mCocina = Integer.parseInt(mC);
